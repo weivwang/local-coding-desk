@@ -1,0 +1,28 @@
+{
+  "fill": {
+    "solid": "display-p3:0.06275,0.14118,0.23137,1.00000"
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "text.svg",
+          "name": "Terminal mark",
+          "position": {
+            "scale": 8,
+            "translation-in-points": [
+              0,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "supported-platforms": {
+    "circles": [
+      "watchOS"
+    ],
+    "squares": "shared"
+  }
+}

@@ -1,0 +1,101 @@
+import type { Messages } from "./en";
+
+export const ru: Messages = {
+  layout: {
+    defaultTitle: "Local Coding Desk",
+    defaultDescription:
+      "Local Coding Desk. Открытый пульт управления ИИ-агентами для программирования.",
+    socialImageAlt:
+      "Local Coding Desk: открытый пульт управления ИИ-агентами для программирования. Claude Code, Codex, Cursor, OpenCode, Grok и Antigravity.",
+    homeLabel: "Главная страница Local Coding Desk",
+    download: "Скачать",
+    starsLabel: "Поставить звезду Local Coding Desk на GitHub, звёзд: {stars}",
+    githubStars: "{stars} звёзд на GitHub",
+    language: "Язык",
+    mitLicensed: "Лицензия MIT",
+    iosApp: "Приложение для iOS",
+    androidApp: "Приложение для Android",
+    terms: "Условия",
+    privacy: "Конфиденциальность",
+    security: "Безопасность",
+  },
+  home: {
+    title: "Local Coding Desk | Открытый пульт управления ИИ-агентами для программирования",
+    description: "Local Coding Desk. Открытый пульт управления ИИ-агентами для программирования.",
+    heroTitle: ["Открытый пульт", "управления", "ИИ-агентами для кода."],
+    heroSub:
+      "Управляйте Claude Code, Codex, Antigravity, OpenCode, Cursor и Grok из одного окна. Пользуйтесь своей подпиской. Форкайте всё целиком.",
+    downloadForMac: "Скачать для macOS",
+    downloadForWindows: "Скачать для Windows",
+    downloadForLinux: "Скачать для Linux",
+    downloadForIos: "Скачать для iOS",
+    downloadForAndroid: "Скачать для Android",
+    sourceLink: "Украдите наш код (легально)",
+    alsoOnPhone: "Есть и для телефона:",
+    screenshotAlt:
+      "Local Coding Desk запускает субагентов Claude, Codex, Muse и Gemini в одном треде",
+    endorsementsTitle: "Более {users} разработчиков не против",
+    endorsementsSub: "Некоторые даже написали об этом в X.",
+    endorsementsLabel: "Отзывы разработчиков",
+    readPost: "Читать пост {handle} в X",
+    harnessTitle: "Со своей подпиской",
+    harnessBody:
+      "Local Coding Desk не перепродаёт токены. Подключайте Claude Code, Codex, Antigravity, OpenCode, Cursor или Grok с учётными данными, которые у вас уже есть. Мы управляем агентами, тариф остаётся вашим.",
+    googleSignIn: "Вход через Google",
+    harnessPoints: [
+      "Никакой перепродажи ключей. Никаких лимитов.",
+      "Меняйте модель прямо посреди треда.",
+      "Новые агенты каждую неделю.",
+    ],
+    gitVisualLabel:
+      "Схема работы с Git в Local Coding Desk: просмотр диффа, коммит и пуш изменений, создание пул-реквеста.",
+    prReady: "Готово",
+    prCommits: "3 коммита",
+    viewDiff: "Открыть дифф",
+    openPullRequest: "Создать пул-реквест",
+    commitPush: "Коммит и пуш",
+    gitTitle: "Одна кнопка для коммита, пуша и PR.",
+    gitBody:
+      "Каждый тред агента работает в своей ветке. Когда всё готово, одна кнопка открывает PR на GitHub со сгенерированным заголовком, описанием и списком изменений. Никаких плясок с терминалом.",
+    gitPoints: [
+      "Автоматические заголовки и описания PR",
+      "Просмотр диффа перед пушем",
+      "Черновые PR, стеки PR, правки PR",
+      "Работает с вашей текущей авторизацией GitHub",
+    ],
+    openTitle: "Что-то не нравится? Форкните.",
+    openPoints: [
+      { lead: "Измените интерфейс.", rest: "Перерисуйте каждый экран на свой вкус." },
+      { lead: "Добавьте агента.", rest: "Подключите свои инструменты, модели и сценарии." },
+      { lead: "Выпустите свою сборку.", rest: "Хостите сами или распространяйте как свою." },
+    ],
+    stars: "{stars} звёзд",
+    forkOnGithub: "Форкнуть на GitHub",
+    browseSource: "Исходный код",
+    ctaTitle: "Ваши агенты заслуживают лучшего, чем терминал.",
+    ctaSub:
+      "Local Coding Desk бесплатный, открытый и быстрый. Установите его, подключите провайдера, которому уже платите, и агенты сразу возьмутся за дело.",
+    otherPlatforms: "Другие платформы",
+  },
+  download: {
+    title: "Скачать Local Coding Desk для macOS, Windows и Linux | Local Coding Desk",
+    description:
+      "Скачайте официальное десктопное приложение Local Coding Desk для macOS, Windows или Linux либо приложения для iOS и Android. Единственный официальный сайт для загрузки: t3.codes.",
+    breadcrumb: "Скачать",
+    heading: "Скачать Local Coding Desk",
+    channelLabel: "Канал релизов",
+    stable: "Стабильный",
+    nightly: "Nightly",
+    intelNote: "Mac на Intel? {link}.",
+    intelLink: "Скачайте сборку x64",
+    armNote: "На ARM? Скачайте {deb} или {appimage} для arm64.",
+    mobile: "Мобильные приложения",
+    iphoneIpad: "iPhone и iPad",
+    terminal: "Терминал",
+    tryOnce: "Или попробуйте без установки:",
+    allBuilds: "Все сборки на {link}",
+    releasesPage: "странице релизов GitHub",
+    builtAgo: "Собрано {age}",
+    releasesFallback: "Релизы",
+  },
+};
