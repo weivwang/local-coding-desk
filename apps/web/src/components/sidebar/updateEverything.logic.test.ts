@@ -169,7 +169,7 @@ describe("collectServerUpdateTargets", () => {
         entry.label,
         entry.reason,
       ]),
-    ).toEqual([["off", "Example Corp manages Local Coding Desk updates."]]);
+    ).toEqual([["off", "Example Corp manages app updates."]]);
     expect(
       collectServerUpdateTargets(
         machines.map((entry) => ({
@@ -295,10 +295,7 @@ describe("collectChannelSwitchTargets", () => {
       ],
       ["old-desktop", "change the update track on that machine"],
       ["behind-desktop", "update Local Coding Desk on that machine"],
-      [
-        "no-nightly",
-        "Example Corp manages Local Coding Desk updates. Only stable releases can be installed.",
-      ],
+      ["no-nightly", "Example Corp manages app updates. Only stable releases can be installed."],
     ]);
   });
 });
