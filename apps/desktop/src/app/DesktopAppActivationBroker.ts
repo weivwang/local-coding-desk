@@ -44,7 +44,7 @@ export class DesktopAppActivationBroker {
   request(request: DesktopAppActivationRequest): Promise<DesktopAppActivationResponse> {
     if (this.#closed) {
       return Promise.resolve(
-        failure(request.requestId, "renderer-unavailable", "Local Coding Desk is shutting down."),
+        failure(request.requestId, "renderer-unavailable", "Hearth is shutting down."),
       );
     }
     if (this.#pending.has(request.requestId)) {
@@ -89,7 +89,7 @@ export class DesktopAppActivationBroker {
           failure(
             pending.request.requestId,
             "renderer-unavailable",
-            "The Local Coding Desk window closed before it opened the project.",
+            "The Hearth window closed before it opened the project.",
           ),
         );
       }
@@ -102,11 +102,7 @@ export class DesktopAppActivationBroker {
 
   cancel(requestId: string): void {
     this.#settle(
-      failure(
-        requestId,
-        "renderer-unavailable",
-        "The command closed before Local Coding Desk was ready.",
-      ),
+      failure(requestId, "renderer-unavailable", "The command closed before Hearth was ready."),
     );
   }
 
@@ -115,11 +111,7 @@ export class DesktopAppActivationBroker {
     this.#renderer = null;
     for (const pending of this.#pending.values()) {
       this.#settle(
-        failure(
-          pending.request.requestId,
-          "renderer-unavailable",
-          "Local Coding Desk is shutting down.",
-        ),
+        failure(pending.request.requestId, "renderer-unavailable", "Hearth is shutting down."),
       );
     }
   }

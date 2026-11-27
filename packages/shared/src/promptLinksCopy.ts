@@ -15,25 +15,22 @@ function promptLinkErrorMessage(error: PromptLinkError, resolve: MFunctionType):
   switch (error) {
     case "prompt-too-long":
       return resolve(
-        msg(
-          "This prompt is longer than {maxLength} characters, so Local Coding Desk did not open it.",
-          {
-            maxLength: PROMPT_LINK_MAX_PROMPT_LENGTH.toLocaleString("en-US"),
-          },
-        ),
+        msg("This prompt is longer than {maxLength} characters, so Hearth did not open it.", {
+          maxLength: PROMPT_LINK_MAX_PROMPT_LENGTH.toLocaleString("en-US"),
+        }),
       );
     case "prompt-only-hidden":
       return resolve(
         msg(
-          "This prompt had only hidden characters, so it may be malicious. Local Coding Desk did not open it.",
+          "This prompt had only hidden characters, so it may be malicious. Hearth did not open it.",
         ),
       );
     case "unreadable-pull-request":
-      return resolve(msg("This link names a pull request Local Coding Desk cannot read."));
+      return resolve(msg("This link names a pull request Hearth cannot read."));
     case "missing-prompt":
       return resolve(msg("This link has no prompt."));
     case "unreadable-repository":
-      return resolve(msg("This link names a repository Local Coding Desk cannot read."));
+      return resolve(msg("This link names a repository Hearth cannot read."));
   }
 }
 

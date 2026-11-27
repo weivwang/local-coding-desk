@@ -52,7 +52,7 @@ export function LocalEnvironmentSetting() {
         description={
           enabled
             ? gt(
-                "Run agents on this computer. Turn off to use Local Coding Desk only with remote environments.",
+                "Run agents on this computer. Turn off to use Hearth only with remote environments.",
               )
             : gt("Turned off. Agents only run in remote environments.")
         }
@@ -81,11 +81,9 @@ export function LocalEnvironmentSetting() {
             <AlertDialogDescription>
               {enabled
                 ? gt(
-                    "Local Coding Desk will restart without running a server on this computer. Any agents and terminals running here will stop, and other devices will no longer be able to connect to this computer. Your projects, history, and remote environments are unaffected.",
+                    "Hearth will restart without running a server on this computer. Any agents and terminals running here will stop, and other devices will no longer be able to connect to this computer. Your projects, history, and remote environments are unaffected.",
                   )
-                : gt(
-                    "Local Coding Desk will restart and start running a server on this computer again.",
-                  )}
+                : gt("Hearth will restart and start running a server on this computer again.")}
             </AlertDialogDescription>
           </AlertDialogHeader>
           {error ? <p className="px-6 pb-4 text-sm text-destructive">{error}</p> : null}

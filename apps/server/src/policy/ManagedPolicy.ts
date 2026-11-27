@@ -198,7 +198,7 @@ const make = Effect.gen(function* () {
         ManagedProviders.knownDriverLabels().map(({ driver }) => driver),
       ).pipe(
         Effect.flatMap((found) => {
-          const source = found?.source ?? "Local Coding Desk";
+          const source = found?.source ?? "Hearth";
           return restrictToLocalDesktop(source, found?.document).pipe(
             Effect.flatMap((document) => fromDocument(source, document)),
           );

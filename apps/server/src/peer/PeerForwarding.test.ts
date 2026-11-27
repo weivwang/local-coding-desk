@@ -87,7 +87,7 @@ const boxThreads = (seen: Ref.Ref<Seen>, linkSession: Ref.Ref<string>) => {
   const linked = Ref.get(linkSession).pipe(
     Effect.map((sessionId) => ({
       ...base,
-      linkOrigin: { sessionId, label: "Local Coding Desk · Laptop" },
+      linkOrigin: { sessionId, label: "Hearth · Laptop" },
     })),
   );
   const users = { ...liveThreadShell(usersThread, { runtimeMode: "auto" }), projectId: boxProject };
@@ -327,7 +327,7 @@ const makeLaptop = Effect.gen(function* () {
               ? {
                   ...liveThreadShell(threadId, { runtimeMode: "full-access" }),
                   // Work another environment's link started on this laptop.
-                  linkOrigin: { sessionId: "session:desk", label: "Local Coding Desk · Desk" },
+                  linkOrigin: { sessionId: "session:desk", label: "Hearth · Desk" },
                 }
               : liveThreadShell(
                   threadId,

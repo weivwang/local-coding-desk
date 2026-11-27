@@ -89,7 +89,7 @@ const repositoryIdentity = {
   provider: SourceControlProviderKind.make("github"),
   owner: "t3tools",
   name: "t3code",
-  displayName: "Local Coding Desk",
+  displayName: "Hearth",
 };
 
 function makeProject(
@@ -348,7 +348,7 @@ describe("buildProjectGroups", () => {
 
     const label = (projects: ReadonlyArray<EnvironmentProject>) =>
       buildProjectGroups({ projects, settings: settings("repository") })[0]?.label;
-    expect(label(folderTitles)).toBe("Local Coding Desk");
+    expect(label(folderTitles)).toBe("Hearth");
     expect(label(renamed)).toBe("t3code");
   });
 
@@ -368,7 +368,7 @@ describe("buildProjectGroups", () => {
       preferredEnvironmentId: environmentId,
     });
     expect(groups).toHaveLength(1);
-    expect(groups[0]?.label).toBe("Local Coding Desk");
+    expect(groups[0]?.label).toBe("Hearth");
 
     // A subfolder group in repository_path mode keeps its own title.
     const localIdentity = { ...repositoryIdentity, rootPath: "/work/t3code" };

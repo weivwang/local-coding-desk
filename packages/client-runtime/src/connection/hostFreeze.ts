@@ -33,6 +33,6 @@ export function hostFreezeNotice(
               cpuCount,
             }),
           )
-        : resolve(msg("Local Coding Desk on {host} was too busy to answer.", { host: hostLabel })),
+        : resolve(msg("Hearth on {host} was too busy to answer.", { host: hostLabel })),
   };
 }

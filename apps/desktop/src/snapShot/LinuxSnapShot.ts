@@ -304,7 +304,7 @@ class LinuxCaptureConnection {
       this.bus.requestName(`${appId}.SnapShot`, NameFlag.DO_NOT_QUEUE),
     );
     if (result !== RequestNameReply.PRIMARY_OWNER) {
-      throw new Error("Another Local Coding Desk instance is capturing a window. Try again.");
+      throw new Error("Another Hearth instance is capturing a window. Try again.");
     }
     const withFeedback = this.feedbackAvailable && options !== undefined;
     const reply = await this.call({

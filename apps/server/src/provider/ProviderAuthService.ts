@@ -88,7 +88,7 @@ export const makeProviderAuthService = Effect.gen(function* () {
         instanceId,
         operation,
         detail: instance
-          ? "This provider does not support sign-in in Local Coding Desk."
+          ? "This provider does not support sign-in in Hearth."
           : "This provider instance is no longer available.",
       });
     }

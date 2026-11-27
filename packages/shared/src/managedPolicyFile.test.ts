@@ -187,7 +187,7 @@ describe("readManagedPolicy", () => {
         }
         assert.include(
           yield* win32({}, new WindowsRegistryError({})),
-          "cannot load its registry reader; reinstall Local Coding Desk",
+          "cannot load its registry reader; reinstall Hearth",
         );
         assert.include(
           yield* win32({}, policyKey([{ name: "Policy", type: "other" }])),
@@ -294,20 +294,14 @@ describe("readManagedPolicy", () => {
       // Anything the template does not write fails closed rather than being ignored.
       for (const [registry, reason] of [
         [policyKey([organization, dword("Telemetry", 2)]), "DWORD of 0 or 1"],
-        [
-          policyKey([organization, text("MaxMode", "auto")]),
-          "not a Local Coding Desk policy value",
-        ],
-        [
-          policyKey([organization], { Other: { x: 1 } }),
-          "Other is not a Local Coding Desk policy key",
-        ],
+        [policyKey([organization, text("MaxMode", "auto")]), "not a Hearth policy value"],
+        [policyKey([organization], { Other: { x: 1 } }), "Other is not a Hearth policy key"],
         [
           {
             ...policyKey([organization, dword("Clients", 1)], { Clients: { desktop: 1 } }),
             Clients: { values: [dword("desktop", 1)], subkeys: ["Nested"] },
           },
-          "Clients\\Nested is not a Local Coding Desk policy key",
+          "Clients\\Nested is not a Hearth policy key",
         ],
         [policyKey([organization, text("Settings", "{")]), "not valid JSON"],
         [policyKey([organization, dword("Clients", 2)]), "DWORD of 0 or 1"],
@@ -324,7 +318,7 @@ describe("readManagedPolicy", () => {
         [policyKey([{ name: "Organization", type: "other" }]), "Organization must be a string"],
         [
           policyKey([text("MaxRuntimeMode", "auto-accept-edits")]),
-          "set the Organization policy whenever another Local Coding Desk policy is set",
+          "set the Organization policy whenever another Hearth policy is set",
         ],
       ] as const) {
         assert.include(yield* document(registry), reason);

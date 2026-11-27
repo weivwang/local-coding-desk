@@ -1590,7 +1590,7 @@ effectIt.effect(
           failure: {
             class: "unknown",
             message:
-              "Local Coding Desk could not start this turn. Send the message again; if it keeps failing, check the server logs.",
+              "Hearth could not start this turn. Send the message again; if it keeps failing, check the server logs.",
           },
         },
       ]);

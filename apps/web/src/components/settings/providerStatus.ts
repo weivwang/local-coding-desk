@@ -73,9 +73,7 @@ export function getProviderSummary(
       headline: resolve(msg("Disabled", { $context: "provider status" })),
       detail:
         provider.message ??
-        resolve(
-          msg("This provider is installed but disabled for new sessions in Local Coding Desk."),
-        ),
+        resolve(msg("This provider is installed but disabled for new sessions in Hearth.")),
     };
   }
   if (!provider.installed) {

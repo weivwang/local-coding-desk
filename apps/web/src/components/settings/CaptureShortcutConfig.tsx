@@ -225,8 +225,8 @@ export function CaptureShortcutConfig({
         <>
           <p className="text-muted-foreground">
             <T>
-              Allow Local Coding Desk to read your desktop settings. You'll review any changes here
-              before saving.
+              Allow Hearth to read your desktop settings. You'll review any changes here before
+              saving.
             </T>
           </p>
           <Button
@@ -247,7 +247,7 @@ export function CaptureShortcutConfig({
         <p role="status" className="text-muted-foreground">
           {state.shortcutPending
             ? gt("Connecting to your desktop…")
-            : gt("Restart Local Coding Desk to finish connecting your shortcut.")}
+            : gt("Restart Hearth to finish connecting your shortcut.")}
         </p>
       ) : null}
       <details className="text-xs text-muted-foreground">
@@ -274,7 +274,7 @@ export function CaptureShortcutConfig({
             </p>
             {niri ? (
               <p>
-                <T>Local Coding Desk also reads any files included by this file.</T>
+                <T>Hearth also reads any files included by this file.</T>
               </p>
             ) : null}
             {preview && preview.resolvedPath !== preview.path ? (
@@ -353,8 +353,8 @@ export function CaptureShortcutConfig({
           </Button>
           <p>
             <T>
-              Turn capture off in Local Coding Desk to stop it. Remove the shortcut from{" "}
-              <Var>{desktop}</Var> to free up the keys.
+              Turn capture off in Hearth to stop it. Remove the shortcut from <Var>{desktop}</Var>{" "}
+              to free up the keys.
             </T>
           </p>
           {state.shortcutActionRegistered === false ? (

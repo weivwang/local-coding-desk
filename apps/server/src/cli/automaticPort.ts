@@ -67,7 +67,7 @@ export const make = Effect.gen(function* () {
     }
     return yield* new CliError.UserError({
       cause:
-        "Windows is already using every port Local Coding Desk tried. Pass --port or set T3CODE_PORT to a port Windows is not using.",
+        "Windows is already using every port Hearth tried. Pass --port or set T3CODE_PORT to a port Windows is not using.",
     });
   });
 });

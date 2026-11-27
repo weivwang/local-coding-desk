@@ -35,7 +35,7 @@ export class PreviewTunnelPortRefusedError extends Schema.TaggedError<PreviewTun
   { port: Schema.Number },
 ) {
   override get message(): string {
-    return `Port ${this.port} is this Local Coding Desk server's own port.`;
+    return `Port ${this.port} is this Hearth server's own port.`;
   }
 }
 
@@ -44,7 +44,7 @@ export class PreviewTunnelDisabledError extends Schema.TaggedError<PreviewTunnel
   {},
 ) {
   override get message(): string {
-    return "The preview tunnel is turned off on this Local Coding Desk server.";
+    return "The preview tunnel is turned off on this Hearth server.";
   }
 }
 

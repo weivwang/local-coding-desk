@@ -41,9 +41,7 @@ const { parseXml } = requireFromUpdater("builder-util-runtime") as {
 const semver = requireFromUpdater("semver") as { parse: (version: string) => RunningVersion };
 
 const releaseTitle = (version: string) =>
-  version.includes("-nightly.")
-    ? `Local Coding Desk Nightly ${version} (0123456789ab)`
-    : `Local Coding Desk v${version}`;
+  version.includes("-nightly.") ? `Hearth Nightly ${version} (0123456789ab)` : `Hearth v${version}`;
 
 const releaseFeed = (...versions: ReadonlyArray<string>) =>
   parseXml(

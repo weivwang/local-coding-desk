@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import { APP_BASE_NAME } from "~/branding";
-import { LocalDeskMark } from "../LocalDeskMark";
+import { HearthMark } from "../HearthMark";
 
 export function StandalonePage({ children }: { readonly children: ReactNode }) {
   return (
@@ -25,8 +25,8 @@ export function StandalonePageHeader({
     <>
       <div className="flex items-baseline justify-between gap-3 text-muted-foreground">
         <span className="flex items-baseline gap-1.5" role="img" aria-label={APP_BASE_NAME}>
-          <LocalDeskMark className="h-3 w-auto shrink-0 text-foreground" aria-hidden />
-          <span className="text-lg font-medium tracking-tight">{APP_BASE_NAME}</span>
+          <HearthMark className="h-4 w-auto shrink-0 self-center text-brand" aria-hidden />
+          <span className="text-lg font-semibold tracking-tight">{APP_BASE_NAME}</span>
         </span>
         {context ? <span className="text-sm">{context}</span> : null}
       </div>

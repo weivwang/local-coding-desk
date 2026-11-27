@@ -648,14 +648,13 @@ function ManagedCodexSetup({
                 ? gt("Using your installed Codex · v{version}.", {
                     version: installation.installedVersion,
                   })
-                : gt("Managed by Local Coding Desk · v{version}.", {
+                : gt("Managed by Hearth · v{version}.", {
                     version: installation.installedVersion,
                   })
               : installation?.source === "local"
                 ? gt("Using your installed Codex.")
-                : gt("Managed by Local Coding Desk.")
-            : (installation?.message ??
-              gt("Local Coding Desk downloads and manages Codex for you."));
+                : gt("Managed by Hearth.")
+            : (installation?.message ?? gt("Hearth downloads and manages Codex for you."));
   const accountDescription = finishingSignIn ? (
     gt("Finishing sign-in...")
   ) : installActive ? (
@@ -735,10 +734,7 @@ function ManagedCodexSetup({
     !handoff && auth?.phase === "waiting" && url ? (
       <div className="flex w-full flex-col gap-3 text-xs leading-relaxed text-muted-foreground">
         <p>
-          <T>
-            If sign-in doesn't return to Local Coding Desk, paste the URL from the final localhost
-            page.
-          </T>
+          <T>If sign-in doesn't return to Hearth, paste the URL from the final localhost page.</T>
         </p>
         <form
           className="flex flex-col gap-2 sm:flex-row sm:items-center"
@@ -1148,7 +1144,7 @@ export function CodexManagedRuntimeFields({
     <>
       <SettingsRow
         title={gt("Binary path")}
-        description={gt("Selected by Local Coding Desk.")}
+        description={gt("Selected by Hearth.")}
         control={
           <div className="w-full sm:w-80">
             <Input

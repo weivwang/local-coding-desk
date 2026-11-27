@@ -183,14 +183,14 @@ function formatServiceStatus(
   protection?: ServiceProtection.ServiceProtectionState,
 ): string {
   if (!status.supported) {
-    return "Local Coding Desk service\n  Status: unavailable on this machine\n  Supported on: Linux with systemd, macOS with launchd, Windows with Task Scheduler";
+    return "Hearth service\n  Status: unavailable on this machine\n  Supported on: Linux with systemd, macOS with launchd, Windows with Task Scheduler";
   }
   if (!status.installed) {
-    return `Local Coding Desk service\n  Status: not installed\n  Next: Run \`${commands.install}\`.`;
+    return `Hearth service\n  Status: not installed\n  Next: Run \`${commands.install}\`.`;
   }
   if (status.otherBaseDir !== undefined) {
     return [
-      "Local Coding Desk service",
+      "Hearth service",
       "  Status: installed for another T3 home",
       `  Base dir: ${status.otherBaseDir}`,
       `  Next: Pass \`${BootService.formatBootServiceBaseDirOption(status.otherBaseDir)}\` to manage it.`,
@@ -206,7 +206,7 @@ function formatServiceStatus(
     compareExactServiceVersions(status.installedVersion, cliVersion) > 0
   ) {
     return [
-      "Local Coding Desk service",
+      "Hearth service",
       `  Status: installed · t3@${installedVersion} (newer than this t3@${cliVersion} CLI)`,
       `  Unit: ${status.unitPath}`,
       `  Logs: ${status.logPath}`,
@@ -216,7 +216,7 @@ function formatServiceStatus(
     ].join("\n");
   }
   return [
-    "Local Coding Desk service",
+    "Hearth service",
     `  Status: ${status.current ? `installed · t3@${installedVersion}` : "needs an update or repair"}`,
     `  Unit: ${status.unitPath}`,
     `  Logs: ${status.logPath}`,
@@ -245,7 +245,7 @@ const serviceReconcileFlags = {
 
 const serviceInstallCommand = Command.make("install", serviceReconcileFlags).pipe(
   Command.withDescription(
-    "Install Local Coding Desk as a background service for this user. `t3 up` also chooses how your other devices reach it.",
+    "Install Hearth as a background service for this user. `t3 up` also chooses how your other devices reach it.",
   ),
   Command.withHandler((flags) =>
     runServiceCommand(
@@ -254,7 +254,7 @@ const serviceInstallCommand = Command.make("install", serviceReconcileFlags).pip
         const result = yield* reconcileService({ allowDowngrade: flags.allowDowngrade });
         if (!result.changed) {
           yield* Console.log(
-            `Local Coding Desk service is already installed with t3@${packageJson.version} (${yield* resolveEntryPath}).`,
+            `Hearth service is already installed with t3@${packageJson.version} (${yield* resolveEntryPath}).`,
           );
           return;
         }
@@ -281,7 +281,7 @@ const serviceUpdateCommand = Command.make("update", serviceReconcileFlags).pipe(
         const result = yield* reconcileService({ allowDowngrade: flags.allowDowngrade });
         if (!result.changed) {
           yield* Console.log(
-            `Local Coding Desk service is already using t3@${packageJson.version} (${yield* resolveEntryPath}).`,
+            `Hearth service is already using t3@${packageJson.version} (${yield* resolveEntryPath}).`,
           );
           return;
         }
@@ -306,12 +306,12 @@ const serviceRestartCommand = Command.make("restart", projectLocationFlags).pipe
           status.installedVersion === undefined ? "" : ` on t3@${status.installedVersion}`;
         yield* Console.log(
           outcome === "restarted"
-            ? `Restarted the Local Coding Desk service${onVersion}.`
+            ? `Restarted the Hearth service${onVersion}.`
             : outcome === "queued"
-              ? `Queued a restart of the Local Coding Desk service${onVersion}. This session runs inside the service and disconnects when it goes down.\nLogs: ${status.logPath}`
+              ? `Queued a restart of the Hearth service${onVersion}. This session runs inside the service and disconnects when it goes down.\nLogs: ${status.logPath}`
               : status.otherBaseDir !== undefined
-                ? `The Local Coding Desk service serves ${status.otherBaseDir}, so it was not restarted. Pass \`${BootService.formatBootServiceBaseDirOption(status.otherBaseDir)}\` to restart it.`
-                : "Local Coding Desk service is not installed.",
+                ? `The Hearth service serves ${status.otherBaseDir}, so it was not restarted. Pass \`${BootService.formatBootServiceBaseDirOption(status.otherBaseDir)}\` to restart it.`
+                : "Hearth service is not installed.",
         );
       }),
     ),
@@ -319,7 +319,7 @@ const serviceRestartCommand = Command.make("restart", projectLocationFlags).pipe
 );
 
 const serviceUninstallCommand = Command.make("uninstall", projectLocationFlags).pipe(
-  Command.withDescription("Stop and remove the Local Coding Desk background service."),
+  Command.withDescription("Stop and remove the Hearth background service."),
   Command.withHandler((flags) =>
     runServiceCommand(
       flags,
@@ -332,15 +332,13 @@ const serviceUninstallCommand = Command.make("uninstall", projectLocationFlags).
         );
         if (otherBaseDir !== undefined) {
           yield* Console.log(
-            `The Local Coding Desk service serves ${otherBaseDir}, so it was not removed. Pass \`${BootService.formatBootServiceBaseDirOption(otherBaseDir)}\` to remove it.`,
+            `The Hearth service serves ${otherBaseDir}, so it was not removed. Pass \`${BootService.formatBootServiceBaseDirOption(otherBaseDir)}\` to remove it.`,
           );
           return;
         }
         const removed = yield* service.uninstall;
         yield* Console.log(
-          removed
-            ? "Removed the Local Coding Desk service."
-            : "Local Coding Desk service is not installed.",
+          removed ? "Removed the Hearth service." : "Hearth service is not installed.",
         );
       }),
     ),
@@ -348,7 +346,7 @@ const serviceUninstallCommand = Command.make("uninstall", projectLocationFlags).
 );
 
 const serviceStatusCommand = Command.make("status", projectLocationFlags).pipe(
-  Command.withDescription("Show whether the Local Coding Desk background service is installed."),
+  Command.withDescription("Show whether the Hearth background service is installed."),
   Command.withHandler((flags) =>
     runServiceCommand(
       flags,
@@ -395,7 +393,7 @@ const serviceProtectCommand = Command.make("protect", {
   ),
 }).pipe(
   Command.withDescription(
-    "Protect the Local Coding Desk server from agents under memory pressure (Linux with systemd). Asks for sudo.",
+    "Protect the Hearth server from agents under memory pressure (Linux with systemd). Asks for sudo.",
   ),
   Command.withHandler((flags) =>
     Effect.gen(function* () {
@@ -404,7 +402,7 @@ const serviceProtectCommand = Command.make("protect", {
       // Before resolving config, which creates T3 directories that root would then own.
       if ((yield* HostProcess.UserId) === 0) {
         return yield* Console.log(
-          "Run `t3 service protect` as the user that runs Local Coding Desk, without sudo. It asks for sudo when it needs root.",
+          "Run `t3 service protect` as the user that runs Hearth, without sudo. It asks for sudo when it needs root.",
         );
       }
       return yield* runServiceCommand(
@@ -427,7 +425,7 @@ const serviceProtectCommand = Command.make("protect", {
               }),
             );
             if (installed === undefined) {
-              return yield* Console.log("Local Coding Desk service protection is not set up.");
+              return yield* Console.log("Hearth service protection is not set up.");
             }
             yield* Console.log(
               [
@@ -438,18 +436,17 @@ const serviceProtectCommand = Command.make("protect", {
                 ),
               ].join("\n"),
             );
-            if (!(yield* confirm(flags.yes, "Remove Local Coding Desk service protection?")))
-              return;
+            if (!(yield* confirm(flags.yes, "Remove Hearth service protection?"))) return;
             yield* ServiceProtection.removeProtection(installed);
             return yield* Console.log(
-              "Removed Local Coding Desk service protection. The server's OOM score returns to normal after `t3 service restart`.",
+              "Removed Hearth service protection. The server's OOM score returns to normal after `t3 service restart`.",
             );
           }
 
           yield* Console.log(
             [
-              "Keeps Local Coding Desk running when agents fill this machine's memory:",
-              "  - reserves memory for the Local Coding Desk server, so the kernel takes memory from agents first",
+              "Keeps Hearth running when agents fill this machine's memory:",
+              "  - reserves memory for the Hearth server, so the kernel takes memory from agents first",
               "  - makes the out-of-memory killer pick agents before the server",
               "It adds systemd drop-in files and changes nothing else. Undo with `t3 service protect --undo`.",
             ].join("\n"),
@@ -482,8 +479,8 @@ const serviceProtectCommand = Command.make("protect", {
           yield* ServiceProtection.applyProtection(plan);
           yield* Console.log(
             memoryController
-              ? "Protected Local Coding Desk. Memory protection applies now; the server takes its OOM score after `t3 service restart`. Undo with `t3 service protect --undo`."
-              : "Protected Local Coding Desk's OOM score; the server takes it after `t3 service restart`. Memory protection applies once the kernel's memory controller is enabled. Undo with `t3 service protect --undo`.",
+              ? "Protected Hearth. Memory protection applies now; the server takes its OOM score after `t3 service restart`. Undo with `t3 service protect --undo`."
+              : "Protected Hearth's OOM score; the server takes it after `t3 service restart`. Memory protection applies once the kernel's memory controller is enabled. Undo with `t3 service protect --undo`.",
           );
         }).pipe(Effect.provide(ProcessRunner.layer)),
       );
@@ -492,7 +489,7 @@ const serviceProtectCommand = Command.make("protect", {
 );
 
 export const serviceCommand = Command.make("service").pipe(
-  Command.withDescription("Manage the Local Coding Desk background service."),
+  Command.withDescription("Manage the Hearth background service."),
   Command.withSubcommands([
     serviceInstallCommand,
     serviceRestartCommand,

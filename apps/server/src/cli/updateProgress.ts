@@ -39,7 +39,7 @@ export function createUpdateProgress(
         const labels = {
           download: "Downloading...",
           verify: "Verifying the download...",
-          extract: "Extracting Local Coding Desk...",
+          extract: "Extracting Hearth...",
           validate: "Checking the new executable...",
           cached: "Using the downloaded release...",
         };

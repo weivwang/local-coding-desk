@@ -55,7 +55,7 @@ export function environmentMismatchError(input: {
     reason: "configuration",
     ...translatableDetail(
       msg(
-        "This address now runs a different Local Coding Desk install ({actual}, not {expected}). Remove this connection and add it again.",
+        "This address now runs a different Hearth install ({actual}, not {expected}). Remove this connection and add it again.",
         { actual: input.actual, expected: input.expected },
       ),
     ),
@@ -145,7 +145,7 @@ function relayProtectedError(error: RelayProtectedError): ConnectionAttemptError
         detail,
         i18nMessage,
         traceId,
-        // The tunnel carried the request when Local Coding Desk is what failed to answer.
+        // The tunnel carried the request when Hearth is what failed to answer.
         hop:
           endpointFailure === "origin_unreachable" || endpointFailure === "invalid_response"
             ? "server"

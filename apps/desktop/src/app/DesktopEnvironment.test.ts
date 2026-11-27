@@ -13,9 +13,9 @@ const defaultInput = {
   platform: "darwin",
   processArch: "arm64",
   appVersion: "0.0.22",
-  appPath: "/Applications/Local Coding Desk.app/Contents/Resources/app.asar",
+  appPath: "/Applications/Hearth.app/Contents/Resources/app.asar",
   isPackaged: false,
-  resourcesPath: "/Applications/Local Coding Desk.app/Contents/Resources",
+  resourcesPath: "/Applications/Hearth.app/Contents/Resources",
   runningUnderArm64Translation: false,
 } satisfies DesktopEnvironment.MakeDesktopEnvironmentInput;
 

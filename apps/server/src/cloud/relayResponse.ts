@@ -62,16 +62,16 @@ export function relayRetryAfterMillis(error: unknown): number | undefined {
 function recoveryHint(error: RelayProtectedError): string {
   switch (error._tag) {
     case "RelayEnvironmentLinkLimitExceededError":
-      return "Unlink an unused environment in T3 Connect, then restart Local Coding Desk on this machine.";
+      return "Unlink an unused environment in T3 Connect, then restart Hearth on this machine.";
     case "RelayAuthInvalidError":
-      return "Run `t3 connect login` to check this machine's authorization. If the stored credential was revoked, sign out with `t3 connect logout`, then run `t3 connect` again. Restart Local Coding Desk after signing in.";
+      return "Run `t3 connect login` to check this machine's authorization. If the stored credential was revoked, sign out with `t3 connect logout`, then run `t3 connect` again. Restart Hearth after signing in.";
     case "RelayEnvironmentLinkProofInvalidError":
       if (error.reason === "environment_key_mismatch") {
-        return "T3 Connect already has this environment linked with a different key. Unlink it in T3 Connect, then restart Local Coding Desk on this machine.";
+        return "T3 Connect already has this environment linked with a different key. Unlink it in T3 Connect, then restart Hearth on this machine.";
       }
-      return "Check this machine's date and time, update Local Coding Desk, then restart it.";
+      return "Check this machine's date and time, update Hearth, then restart it.";
     case "RelayEnvironmentLinkProofExpiredError":
-      return "Check this machine's date and time, update Local Coding Desk, then restart it.";
+      return "Check this machine's date and time, update Hearth, then restart it.";
     default:
       return "Retry when the relay is available. If this continues, include the trace ID when reporting it.";
   }
@@ -88,7 +88,7 @@ export const filterRelayResponse = Effect.fn("cloud.filter_relay_response")(func
   const requestId = ray && /^[a-zA-Z0-9-]{1,128}$/.test(ray) ? ` Cloudflare Ray ID: ${ray}.` : "";
   const description = Option.isSome(decoded)
     ? `T3 Connect: ${decoded.value.message}. ${recoveryHint(decoded.value)} Trace ID: ${decoded.value.traceId}.`
-    : `T3 Connect relay returned HTTP ${response.status} without a recognized error response. Check relay access and any proxy or firewall restrictions, then restart Local Coding Desk.${requestId}`;
+    : `T3 Connect relay returned HTTP ${response.status} without a recognized error response. Check relay access and any proxy or firewall restrictions, then restart Hearth.${requestId}`;
 
   // Only a schema-decoded expired-proof 401 is retryable for clock skew; every other 401 is permanent.
   if (

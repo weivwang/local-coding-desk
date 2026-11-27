@@ -72,7 +72,7 @@ function installTestBrowser(url: string) {
   };
 
   vi.stubGlobal("window", testWindow);
-  vi.stubGlobal("document", { title: "Local Coding Desk" });
+  vi.stubGlobal("document", { title: "Hearth" });
 
   return testWindow;
 }

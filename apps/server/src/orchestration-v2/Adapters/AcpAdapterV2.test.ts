@@ -950,9 +950,9 @@ function assertReinjectedInstructions(
   request: string,
 ) {
   const text = blocks[0]?.text ?? "";
-  assert.include(text, "Local Coding Desk interaction mode: Default");
-  assert.include(text, "## Local Coding Desk browser");
-  assert.include(text, "Local Coding Desk orchestration");
+  assert.include(text, "Hearth interaction mode: Default");
+  assert.include(text, "## Hearth browser");
+  assert.include(text, "Hearth orchestration");
   assert.include(text, `<user_request>\n${request}\n</user_request>`);
   assert.include(blocks[1]?.text ?? "", "<runtime_info>");
 }
@@ -1478,7 +1478,7 @@ describe("AcpAdapterV2", () => {
       assert.deepEqual(promptRuntimes, [1, 2], "the next turn runs on a fresh runtime");
       // The fresh runtime has no record of what reached the agent, so it sends T3's notes again.
       assert.include(promptTexts[1] ?? "", "<runtime_info>");
-      assert.include(promptTexts[1] ?? "", "Local Coding Desk interaction mode: Default");
+      assert.include(promptTexts[1] ?? "", "Hearth interaction mode: Default");
       assert.equal(watchedSessions.length, 2);
       assert.equal(watchedSessions[0], watchedSessions[1]);
 
@@ -2688,9 +2688,9 @@ describe("AcpAdapterV2", () => {
         assert.notInclude(whitespaceCommand.prompt, "<t3_code_instructions>");
         const firstDefault = yield* runTurn(2, defaultPolicy, "First default request.");
         assert.equal(firstDefault.textBlockCount, 2);
-        assert.include(firstDefault.prompt, "Local Coding Desk interaction mode: Default");
-        assert.include(firstDefault.prompt, "## Local Coding Desk browser");
-        assert.include(firstDefault.prompt, "Local Coding Desk orchestration");
+        assert.include(firstDefault.prompt, "Hearth interaction mode: Default");
+        assert.include(firstDefault.prompt, "## Hearth browser");
+        assert.include(firstDefault.prompt, "Hearth orchestration");
         assert.include(firstDefault.prompt, "<runtime_info>");
         assert.notInclude(
           firstDefault.methods,
@@ -2703,14 +2703,14 @@ describe("AcpAdapterV2", () => {
 
         const planPolicy = policy("plan");
         const firstPlan = yield* runTurn(4, planPolicy, "Plan this change.");
-        assert.include(firstPlan.prompt, "Local Coding Desk interaction mode: Plan");
+        assert.include(firstPlan.prompt, "Hearth interaction mode: Plan");
         assert.deepEqual(firstPlan.modeSets, [planModeId]);
         assert.include(
           (yield* runTurn(5, planPolicy, "Continue planning.")).prompt,
           "Continue planning.",
         );
         const restoredBuild = yield* runTurn(6, defaultPolicy, "Implement the change.");
-        assert.include(restoredBuild.prompt, "Local Coding Desk interaction mode: Default");
+        assert.include(restoredBuild.prompt, "Hearth interaction mode: Default");
         assert.deepEqual(
           restoredBuild.modeSets,
           [buildModeId],
@@ -5229,7 +5229,7 @@ describe("AcpAdapterV2", () => {
         results: [{ url: "https://example.com/streamed_(detail)" }],
       });
       assert.deepEqual(webItem("grok-web-fetch", "completed")?.results, [
-        { url: "https://t3.codes", snippet: "Local Coding Desk page" },
+        { url: "https://t3.codes", snippet: "Hearth page" },
       ]);
       const completedCompaction = items.find(
         (item) =>
@@ -7667,7 +7667,7 @@ describe("AcpAdapterV2", () => {
         }),
       );
       const replacementPrompt = yield* Deferred.await(replacementPromptText);
-      assert.include(replacementPrompt, "Local Coding Desk interaction mode: Default");
+      assert.include(replacementPrompt, "Hearth interaction mode: Default");
       assert.include(replacementPrompt, "<runtime_info>");
     }).pipe(Effect.provide(layerTest)),
   );

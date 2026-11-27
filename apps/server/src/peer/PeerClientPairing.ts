@@ -169,10 +169,10 @@ const make = Effect.gen(function* () {
         return (
           client?.label ??
           ([client?.browser, client?.os].filter((part) => part !== undefined).join(" on ") ||
-            "Local Coding Desk client")
+            "Hearth client")
         );
       }),
-      Effect.orElseSucceed(() => "Local Coding Desk client"),
+      Effect.orElseSucceed(() => "Hearth client"),
     );
 
   /** Asks the linked environment for a pairing; `payload` says for whom. */

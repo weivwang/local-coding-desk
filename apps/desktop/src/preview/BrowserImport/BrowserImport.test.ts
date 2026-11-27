@@ -83,9 +83,7 @@ const withImporter = Effect.fnUntraced(function* () {
         Layer.provide(DesktopManagedPolicy.layerTest()),
         Layer.provide(layerEnvironment),
         Layer.provide(Layer.succeed(HostProcess.Platform, "darwin")),
-        Layer.provide(
-          Layer.succeed(HostProcess.ExecutablePath, "/Applications/Local Coding Desk.app"),
-        ),
+        Layer.provide(Layer.succeed(HostProcess.ExecutablePath, "/Applications/Hearth.app")),
         Layer.provide(NodeServices.layer),
       ),
     ),

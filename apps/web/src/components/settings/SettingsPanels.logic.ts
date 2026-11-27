@@ -176,7 +176,7 @@ export function getChangedBrowserSettingLabels(
       ? [resolve(msg("Floating preview"))]
       : []),
     ...(settings.pullRequestLinksOpenInApp !== DEFAULT_UNIFIED_SETTINGS.pullRequestLinksOpenInApp
-      ? [resolve(msg("Open pull requests in Local Coding Desk"))]
+      ? [resolve(msg("Open pull requests in Hearth"))]
       : []),
   ];
 }

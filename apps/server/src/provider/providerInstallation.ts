@@ -111,7 +111,7 @@ const make = Effect.fn("makeProviderInstallation")(function* () {
       return yield* new ProviderSetupError({
         instanceId,
         operation,
-        detail: "Choose managed setup to install Codex in Local Coding Desk.",
+        detail: "Choose managed setup to install Codex in Hearth.",
       });
     }
     if (managedOnly && config.binaryPath && (!isCodex || config.binaryPath !== "codex")) {
@@ -119,7 +119,7 @@ const make = Effect.fn("makeProviderInstallation")(function* () {
         instanceId,
         operation,
         detail:
-          "This instance uses a custom executable. Clear its binary path to manage installation in Local Coding Desk.",
+          "This instance uses a custom executable. Clear its binary path to manage installation in Hearth.",
       });
     }
     return { installation, driver: instance.driverKind };

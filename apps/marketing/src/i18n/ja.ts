@@ -2,13 +2,13 @@ import type { Messages } from "./en";
 
 export const ja: Messages = {
   layout: {
-    defaultTitle: "Local Coding Desk",
-    defaultDescription: "Local Coding Desk。オープンソースのコーディングエージェント制御プレーン。",
+    defaultTitle: "Hearth",
+    defaultDescription: "Hearth。オープンソースのコーディングエージェント制御プレーン。",
     socialImageAlt:
-      "Local Coding Desk：オープンソースのコーディングエージェント制御プレーン。Claude Code、Codex、Cursor、OpenCode、Grok、Antigravity に対応。",
-    homeLabel: "Local Coding Desk ホーム",
+      "Hearth：オープンソースのコーディングエージェント制御プレーン。Claude Code、Codex、Cursor、OpenCode、Grok、Antigravity に対応。",
+    homeLabel: "Hearth ホーム",
     download: "ダウンロード",
-    starsLabel: "GitHub で Local Coding Desk にスターを付ける（{stars} スター）",
+    starsLabel: "GitHub で Hearth にスターを付ける（{stars} スター）",
     githubStars: "GitHub スター {stars}",
     language: "言語",
     mitLicensed: "MIT ライセンス",
@@ -19,8 +19,8 @@ export const ja: Messages = {
     security: "セキュリティ",
   },
   home: {
-    title: "Local Coding Desk | オープンソースのコーディングエージェント制御プレーン",
-    description: "Local Coding Desk。オープンソースのコーディングエージェント制御プレーン。",
+    title: "Hearth | オープンソースのコーディングエージェント制御プレーン",
+    description: "Hearth。オープンソースのコーディングエージェント制御プレーン。",
     heroTitle: ["オープンソースの", "コーディングエージェント", "制御プレーン。"],
     heroSub:
       "Claude Code、Codex、Antigravity、OpenCode、Cursor、Grok をひとつの画面からオーケストレーション。サブスクリプションは手持ちのものをそのまま。まるごとフォークも自由です。",
@@ -32,14 +32,14 @@ export const ja: Messages = {
     sourceLink: "コードを盗もう（合法的に）",
     alsoOnPhone: "スマホでも使えます：",
     screenshotAlt:
-      "ひとつのスレッドで Claude、Codex、Muse、Gemini のサブエージェントを動かす Local Coding Desk",
+      "ひとつのスレッドで Claude、Codex、Muse、Gemini のサブエージェントを動かす Hearth",
     endorsementsTitle: "{users}人以上の開発者たちが「悪くない」と言っています",
     endorsementsSub: "温かいツイートまでいただいています。",
     endorsementsLabel: "開発者の声",
     readPost: "X で {handle} の投稿を読む",
     harnessTitle: "サブスクは持ち込みで",
     harnessBody:
-      "Local Coding Desk はトークンの上乗せ販売を行いません。すでにお持ちの認証情報で、Claude Code、Codex、Antigravity、OpenCode、Cursor、Grok をつなぐだけ。Local Coding Desk は制御プレーンのみを提供。プランは今のままで。",
+      "Hearth はトークンの上乗せ販売を行いません。すでにお持ちの認証情報で、Claude Code、Codex、Antigravity、OpenCode、Cursor、Grok をつなぐだけ。Hearth は制御プレーンのみを提供。プランは今のままで。",
     googleSignIn: "Google でサインイン",
     harnessPoints: [
       "キーの再販なし。使用量の上限なし。",
@@ -47,7 +47,7 @@ export const ja: Messages = {
       "対応エージェントは毎週追加。",
     ],
     gitVisualLabel:
-      "Local Coding Desk の Git ワークフローの図：diff を確認し、変更をコミットしてプッシュし、プルリクエストを作成する。",
+      "Hearth の Git ワークフローの図：diff を確認し、変更をコミットしてプッシュし、プルリクエストを作成する。",
     prReady: "準備完了",
     prCommits: "3 コミット",
     viewDiff: "diff を表示",
@@ -76,15 +76,15 @@ export const ja: Messages = {
     browseSource: "ソースを見る",
     ctaTitle: "あなたのエージェントに、ターミナルよりふさわしい場所を。",
     ctaSub:
-      "Local Coding Desk は無料、オープンソースで、高速です。インストールしたら、お使いのハーネスをつなぐだけ。すぐに仕事に取り掛かれます。",
+      "Hearth は無料、オープンソースで、高速です。インストールしたら、お使いのハーネスをつなぐだけ。すぐに仕事に取り掛かれます。",
     otherPlatforms: "ほかのプラットフォーム",
   },
   download: {
-    title: "Local Coding Desk をダウンロード（macOS、Windows、Linux）| Local Coding Desk",
+    title: "Hearth をダウンロード（macOS、Windows、Linux）| Hearth",
     description:
-      "公式の Local Coding Desk デスクトップアプリ（macOS、Windows、Linux）や、iOS・Android アプリをダウンロードできます。公式のダウンロードサイトは t3.codes だけです。",
+      "公式の Hearth デスクトップアプリ（macOS、Windows、Linux）や、iOS・Android アプリをダウンロードできます。公式のダウンロードサイトは t3.codes だけです。",
     breadcrumb: "ダウンロード",
-    heading: "Local Coding Desk をダウンロード",
+    heading: "Hearth をダウンロード",
     channelLabel: "リリースチャンネル",
     stable: "安定版",
     nightly: "Nightly",

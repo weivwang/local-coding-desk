@@ -19,7 +19,7 @@
   <svg x="32" y="23" width="30" height="18" viewBox="0 0 24 24" color="#10243b" fill="#303034">
     <path d="M7 8l5 4-5 4M14 16h4" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
   </svg>
-  <text x="320" y="104" fill="#303034" font-family="Helvetica" font-size="23" font-weight="700" text-anchor="middle">Drag Local Coding Desk into Applications.</text>
+  <text x="320" y="104" fill="#303034" font-family="Helvetica" font-size="23" font-weight="700" text-anchor="middle">Drag Hearth into Applications.</text>
   <path d="M270 204Q320 179 370 204M358 190L370 204L351 209" stroke="#505057" stroke-width="2.2" fill="none" opacity="1" stroke-linecap="round" stroke-linejoin="round"/>
   <text x="320" y="367" fill="#626269" font-family="Helvetica" font-size="12" font-weight="400" text-anchor="middle">Once copied, open it from Applications.</text>
 </svg>

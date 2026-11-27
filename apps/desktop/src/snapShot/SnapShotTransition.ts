@@ -114,7 +114,7 @@ function createWindow(
     resizable: false,
     show: false,
     skipTaskbar: true,
-    title: "Local Coding Desk Snapshot Animation",
+    title: "Hearth Snapshot Animation",
     transparent: true,
     webPreferences: {
       backgroundThrottling: false,

@@ -1647,7 +1647,7 @@ function ScheduledTaskEditorForm({
       reportFailure(
         gt("Once is not available here"),
         gt(
-          "This environment runs an older Local Coding Desk. Update it to schedule a one-time task, or pick another schedule.",
+          "This environment runs an older Hearth. Update it to schedule a one-time task, or pick another schedule.",
         ),
       );
       return;

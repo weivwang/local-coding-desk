@@ -36,7 +36,7 @@ export class SshWindowsHostError extends Schema.TaggedError<SshWindowsHostError>
   { cause: Schema.Defect() },
 ) {
   override get message(): string {
-    return "Connected over SSH, but this host runs Windows, and SSH device hosts currently need macOS or Linux. To use this machine's devices, run Local Coding Desk on it and connect to that environment.";
+    return "Connected over SSH, but this host runs Windows, and SSH device hosts currently need macOS or Linux. To use this machine's devices, run Hearth on it and connect to that environment.";
   }
 }
 export const isSshWindowsHostError = Schema.is(SshWindowsHostError);
@@ -50,7 +50,7 @@ export class SshConnectError extends Schema.TaggedError<SshConnectError>()("SshC
   cause: Schema.Defect(),
 }) {
   override get message(): string {
-    const here = "the machine running this Local Coding Desk server";
+    const here = "the machine running this Hearth server";
     const detail = this.detail.replace(/\.$/u, "");
     switch (this.reason) {
       case "host_key_unknown":

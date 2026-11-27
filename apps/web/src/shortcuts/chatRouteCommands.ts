@@ -174,9 +174,7 @@ export function installChatRouteCommands(router: AnyRouter): () => void {
             stackedThreadToast({
               type: "info",
               title: m(msg("Preview is desktop-only")),
-              description: m(
-                msg("Open Local Coding Desk in the desktop app to use the in-app preview."),
-              ),
+              description: m(msg("Open Hearth in the desktop app to use the in-app preview.")),
             }),
           );
           return;

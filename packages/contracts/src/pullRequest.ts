@@ -1049,9 +1049,9 @@ export class PullRequestUnavailableError extends Schema.TaggedError<PullRequestU
         return "Change requests cannot be browsed for this project's host yet.";
       case "repository-without-project":
         if (this.host !== undefined) {
-          return `No project in Local Coding Desk is on ${this.host}. Add any ${this.host} project to read its change requests.`;
+          return `No project in Hearth is on ${this.host}. Add any ${this.host} project to read its change requests.`;
         }
-        return `${this.repository ?? "This repository"} is not a project in Local Coding Desk. Add it as a project to read its change requests.`;
+        return `${this.repository ?? "This repository"} is not a project in Hearth. Add it as a project to read its change requests.`;
     }
   }
 }

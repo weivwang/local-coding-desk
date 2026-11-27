@@ -28,7 +28,7 @@ export class ManagedPolicyFileError extends Schema.TaggedError<ManagedPolicyFile
   override readonly [Runtime.errorExitCode] = SERVER_EXIT_CODE_MANAGED_POLICY;
 
   override get message(): string {
-    return `Local Coding Desk cannot use the managed policy at ${this.path}: ${this.reason}. It will not start until an administrator fixes this.`;
+    return `Hearth cannot use the managed policy at ${this.path}: ${this.reason}. It will not start until an administrator fixes this.`;
   }
 }
 
@@ -429,7 +429,7 @@ function windowsPolicyDocument(
     }
     if (Object.hasOwn(WINDOWS_POLICY_GROUPS, value.name)) continue;
     if (!Object.hasOwn(WINDOWS_POLICY_VALUES, value.name)) {
-      return { error: `${value.name} is not a Local Coding Desk policy value` };
+      return { error: `${value.name} is not a Hearth policy value` };
     }
     const field = WINDOWS_POLICY_VALUES[value.name as keyof typeof WINDOWS_POLICY_VALUES];
     if (field.type === "boolean") {
@@ -457,7 +457,7 @@ function windowsPolicyDocument(
   // The schema would name `["organization"]`, which an admin cannot map to a Group Policy setting.
   if (document.organization === undefined) {
     return {
-      error: "set the Organization policy whenever another Local Coding Desk policy is set",
+      error: "set the Organization policy whenever another Hearth policy is set",
     };
   }
   return { document };
@@ -532,7 +532,7 @@ const readPlatformPolicy = Effect.fnUntraced(function* (
               path,
               reason:
                 cause.code === undefined
-                  ? "this Local Coding Desk install cannot load its registry reader; reinstall Local Coding Desk"
+                  ? "this Hearth install cannot load its registry reader; reinstall Hearth"
                   : `the registry cannot be read (${cause.message})`,
               cause,
             }),
@@ -565,14 +565,11 @@ const readPlatformPolicy = Effect.fnUntraced(function* (
       const list = Object.keys(WINDOWS_POLICY_LISTS).find(
         (name) => name.toLowerCase() === subkey.toLowerCase(),
       );
-      if (list === undefined)
-        return yield* refuse(`${subkey} is not a Local Coding Desk policy key`);
+      if (list === undefined) return yield* refuse(`${subkey} is not a Hearth policy key`);
       const checkboxes = yield* readKey(`${WINDOWS_POLICY_SUBKEY}\\${subkey}`);
       if (checkboxes === undefined) continue;
       if (checkboxes.subkeys.length > 0) {
-        return yield* refuse(
-          `${subkey}\\${checkboxes.subkeys[0]} is not a Local Coding Desk policy key`,
-        );
+        return yield* refuse(`${subkey}\\${checkboxes.subkeys[0]} is not a Hearth policy key`);
       }
       values.push(...checkboxes.values.map((value) => ({ ...value, key: list })));
     }
@@ -600,7 +597,7 @@ export function restrictToLocalDesktop(
   }
   return Effect.succeed<ManagedPolicyDocument>({
     schemaVersion: 1,
-    organization: "Local Coding Desk",
+    organization: "Hearth",
     ...policy,
     settings: {
       ...policy?.settings,

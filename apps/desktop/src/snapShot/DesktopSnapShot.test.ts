@@ -493,7 +493,7 @@ const layerTest = (
           DesktopEnvironment.DesktopEnvironment,
           DesktopEnvironment.DesktopEnvironment.of({
             platform,
-            displayName: "Local Coding Desk (Dev)",
+            displayName: "Hearth (Dev)",
             stateDir: "/state",
             linuxDesktopEntryName: "com.t3tools.T3Code.desktop",
             appRoot: "/repo",
@@ -1786,7 +1786,7 @@ it.effect("flags revoked macOS permissions on read and re-registers once they re
       const revoked = yield* service.state;
       assert.equal(
         revoked.message,
-        "Allow Screen Recording in System Settings, then restart Local Coding Desk.",
+        "Allow Screen Recording in System Settings, then restart Hearth.",
       );
       assert.deepEqual(revoked.macPermissions, { screenRecording: false, accessibility: true });
 
@@ -1799,7 +1799,7 @@ it.effect("flags revoked macOS permissions on read and re-registers once they re
       const blocked = yield* service.state;
       assert.equal(
         blocked.message,
-        "Allow Screen Recording in System Settings, then restart Local Coding Desk.",
+        "Allow Screen Recording in System Settings, then restart Hearth.",
       );
       assert.isFalse(blocked.shortcutRegistered);
 
@@ -2160,9 +2160,9 @@ it.effect.each([false, true])(
       id: 42,
       title: "Setup",
       owner: {
-        name: "Local Coding Desk",
+        name: "Hearth",
         processId: 123,
-        path: "/Applications/Local Coding Desk.app",
+        path: "/Applications/Hearth.app",
       },
       bounds: { x: 0, y: 0, width: 800, height: 600 },
     };
@@ -2180,7 +2180,7 @@ it.effect.each([false, true])(
           assert.equal(error.reason, "setup-failed");
           assert.equal(
             error.message,
-            'Could not capture a test snapshot. Capturing the window failed. macOS grants Screen Recording and Accessibility to each app separately. In System Settings, open Privacy & Security and check that "Local Coding Desk (Dev)" is allowed for both.',
+            'Could not capture a test snapshot. Capturing the window failed. macOS grants Screen Recording and Accessibility to each app separately. In System Settings, open Privacy & Security and check that "Hearth (Dev)" is allowed for both.',
           );
         } else yield* service.setup("test-mac-capture");
         assert.equal(macCaptureMock.mock.calls.length, 1);

@@ -84,7 +84,7 @@ const checkForUpdatesFromMenu = Effect.gen(function* () {
     yield* electronDialog.showMessageBox({
       type: "info",
       title: m(msg("You're up to date!")),
-      message: m(msg("Local Coding Desk {version} is currently the newest version available."), {
+      message: m(msg("Hearth {version} is currently the newest version available."), {
         version: updateState.currentVersion,
       }),
       buttons: [m(msg("OK"))],
@@ -95,11 +95,11 @@ const checkForUpdatesFromMenu = Effect.gen(function* () {
       title: m(msg("Update available")),
       message:
         updateState.availableVersion === null
-          ? m(msg("A new version of Local Coding Desk is available."))
-          : m(msg("Local Coding Desk {version} is available."), {
+          ? m(msg("A new version of Hearth is available."))
+          : m(msg("Hearth {version} is available."), {
               version: updateState.availableVersion,
             }),
-      detail: m(msg("You're running Local Coding Desk {version}."), {
+      detail: m(msg("You're running Hearth {version}."), {
         version: updateState.currentVersion,
       }),
       buttons: [
@@ -116,8 +116,8 @@ const checkForUpdatesFromMenu = Effect.gen(function* () {
       title: m(msg("Update downloading")),
       message:
         updateState.availableVersion === null
-          ? m(msg("A new version of Local Coding Desk is already downloading."))
-          : m(msg("Local Coding Desk {version} is already downloading."), {
+          ? m(msg("A new version of Hearth is already downloading."))
+          : m(msg("Hearth {version} is already downloading."), {
               version: updateState.availableVersion,
             }),
       buttons: [m(msg("OK"))],
@@ -129,11 +129,9 @@ const checkForUpdatesFromMenu = Effect.gen(function* () {
       title: m(msg("Update ready")),
       message:
         version === null
-          ? m(msg("A new version of Local Coding Desk is ready to install."))
-          : m(msg("Local Coding Desk {version} is ready to install."), { version }),
-      detail: m(
-        msg("Local Coding Desk will restart to install it. Any running tasks will be interrupted."),
-      ),
+          ? m(msg("A new version of Hearth is ready to install."))
+          : m(msg("Hearth {version} is ready to install."), { version }),
+      detail: m(msg("Hearth will restart to install it. Any running tasks will be interrupted.")),
       buttons: [m(msg("Restart", { $context: "button, restarts the app" })), m(msg("Later"))],
       defaultId: 0,
       cancelId: 1,

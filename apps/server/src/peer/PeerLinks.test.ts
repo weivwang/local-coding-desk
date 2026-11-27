@@ -191,7 +191,7 @@ it.effect("links with a pairing code, and the peer holds its agents to the limit
       });
       // B lists the link under A's name, where it can be revoked.
       expect((yield* linkedSessions(b)).map((session) => session.client.label)).toEqual([
-        "Local Coding Desk · Laptop",
+        "Hearth · Laptop",
       ]);
       expect(
         (yield* a.links.list).map(({ environmentId, status }) => [environmentId, status]),
@@ -200,9 +200,9 @@ it.effect("links with a pairing code, and the peer holds its agents to the limit
       // The caller's limits narrow the link's access; they never widen it.
       expect(
         yield* probe(a, { runtimeMode: "approval-required", interactionMode: "plan" }),
-      ).toEqual({ caller: "Local Coding Desk · Laptop", modes: "approval-required/plan" });
+      ).toEqual({ caller: "Hearth · Laptop", modes: "approval-required/plan" });
       expect(yield* probe(a)).toEqual({
-        caller: "Local Coding Desk · Laptop",
+        caller: "Hearth · Laptop",
         modes: "auto/default",
       });
 
@@ -260,7 +260,7 @@ it.effect(
         expect(waiting.message).toContain("has Linked environments turned off");
         yield* b.settings.updateSettings({ linkedEnvironmentsEnabled: true });
         expect(yield* probe(a)).toEqual({
-          caller: "Local Coding Desk · Laptop",
+          caller: "Hearth · Laptop",
           modes: "auto/default",
         });
       }),
@@ -862,31 +862,29 @@ it.effect("linking a picked machine that answers nowhere names it and links noth
   ).pipe(Effect.provide(NodeHttpServer.layerTest)),
 );
 
-it.live(
-  "linking an address with nothing listening says so, unlike one that is not Local Coding Desk",
-  () =>
-    Effect.scoped(
-      Effect.gen(function* () {
-        // Any test worker can reuse a closed ephemeral port; port 2 is privileged and outside that range.
-        const closed = "http://127.0.0.1:2";
-        const notT3 = yield* serveRaw(() =>
-          Effect.succeed(
-            HttpServerResponse.text("<h1>Not Found</h1>", {
-              status: 404,
-              contentType: "text/html",
-            }),
-          ),
-        );
-        const a = yield* makeA(laptop);
-        const linking = (url: string) =>
-          a.links.link({ url, pairingCode: "unused", access: "auto" }).pipe(Effect.flip);
-        expect((yield* linking(closed)).message).toBe(`${closed} did not answer (ECONNREFUSED).`);
-        expect((yield* linking(notT3)).message).toBe(
-          `${notT3} answered, but not as a Local Coding Desk environment this version understands.`,
-        );
-        expect(yield* a.links.list).toEqual([]);
-      }),
-    ).pipe(Effect.provide(NodeHttpServer.layerTest)),
+it.live("linking an address with nothing listening says so, unlike one that is not Hearth", () =>
+  Effect.scoped(
+    Effect.gen(function* () {
+      // Any test worker can reuse a closed ephemeral port; port 2 is privileged and outside that range.
+      const closed = "http://127.0.0.1:2";
+      const notT3 = yield* serveRaw(() =>
+        Effect.succeed(
+          HttpServerResponse.text("<h1>Not Found</h1>", {
+            status: 404,
+            contentType: "text/html",
+          }),
+        ),
+      );
+      const a = yield* makeA(laptop);
+      const linking = (url: string) =>
+        a.links.link({ url, pairingCode: "unused", access: "auto" }).pipe(Effect.flip);
+      expect((yield* linking(closed)).message).toBe(`${closed} did not answer (ECONNREFUSED).`);
+      expect((yield* linking(notT3)).message).toBe(
+        `${notT3} answered, but not as a Hearth environment this version understands.`,
+      );
+      expect(yield* a.links.list).toEqual([]);
+    }),
+  ).pipe(Effect.provide(NodeHttpServer.layerTest)),
 );
 
 /** An https listener whose certificate this machine does not trust. */

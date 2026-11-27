@@ -111,7 +111,7 @@ export const make = Effect.gen(function* () {
             httpBaseUrl: config.httpBaseUrl.href,
             credential,
             clientMetadata: {
-              label: "Local Coding Desk Desktop",
+              label: "Hearth Desktop",
               deviceType: "desktop",
             },
           }).pipe(Effect.provideService(HttpClient.HttpClient, httpClient));

@@ -388,10 +388,7 @@ export const makeCodexInstallation = Effect.fn("makeCodexInstallation")(function
       return executable;
     },
     Effect.mapError(
-      wrapFailure(
-        "resolve",
-        "Codex is not installed in Local Coding Desk. Install it to continue.",
-      ),
+      wrapFailure("resolve", "Codex is not installed in Hearth. Install it to continue."),
     ),
   );
   const acquire = Effect.fn("CodexInstallation.acquire")(function* () {

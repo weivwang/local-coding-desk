@@ -536,7 +536,7 @@ it.layer(Layer.mergeAll(NodeServices.layer, NodePlatformCrypto.layer))(
         const day = 24 * 60 * 60 * 1000;
         const issue = (peerLink: boolean) =>
           serverAuth.issueMcpClientSession({
-            label: peerLink ? "Local Coding Desk · A" : "ChatGPT",
+            label: peerLink ? "Hearth · A" : "ChatGPT",
             access: "auto",
             peerLink,
             client: requestMetadata,
@@ -757,7 +757,7 @@ it.layer(Layer.mergeAll(NodeServices.layer, NodePlatformCrypto.layer))(
         const paired = yield* serverAuth.exchangeBootstrapCredentialForAccessToken(
           pairing.credential,
           undefined,
-          { ...requestMetadata, label: "Local Coding Desk Desktop" },
+          { ...requestMetadata, label: "Hearth Desktop" },
         );
         const first = yield* serverAuth.exchangeBootstrapCredentialForAccessToken(
           "desktop-bootstrap-token",

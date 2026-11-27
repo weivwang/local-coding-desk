@@ -162,10 +162,7 @@ export async function startDesktopAppControlServer(input: {
       activeRequestId = parsed.requestId;
       void input.handle(parsed).then(finish, () => {
         finish(
-          invalidResponse(
-            parsed.requestId,
-            "Local Coding Desk could not process the desktop app request.",
-          ),
+          invalidResponse(parsed.requestId, "Hearth could not process the desktop app request."),
         );
       });
     });

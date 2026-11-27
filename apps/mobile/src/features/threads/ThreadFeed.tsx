@@ -1819,7 +1819,7 @@ function ThreadAutomationMessageRow(props: {
   );
 }
 
-/** Leads with why Local Coding Desk compacted, when it did so without being asked. */
+/** Leads with why Hearth compacted, when it did so without being asked. */
 function compactionLabel(
   label: string,
   title: string | undefined,
@@ -2388,7 +2388,7 @@ function renderFeedEntry(
         >
           {presentation.attribution === "t3code" ? (
             <Text className="mb-1 pr-1 font-t3-medium text-2xs text-foreground-muted opacity-60">
-              {m(msg("Sent by Local Coding Desk"))}
+              {m(msg("Sent by Hearth"))}
             </Text>
           ) : null}
           {presentation.guestName !== undefined ? (

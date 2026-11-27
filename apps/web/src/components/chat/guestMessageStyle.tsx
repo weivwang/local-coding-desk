@@ -5,7 +5,7 @@ export function guestBubbleClassName(pending: boolean): string {
   return pending ? "border border-dashed border-guest/50 bg-transparent" : "bg-guest-surface";
 }
 
-/** The guest's name above their message, where "Sent by Local Coding Desk" sits for server messages. */
+/** The guest's name above their message, where "Sent by Hearth" sits for server messages. */
 export function GuestMessageName({ name }: { readonly name: string }) {
   const gt = useGT();
   return (

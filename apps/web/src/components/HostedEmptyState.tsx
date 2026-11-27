@@ -46,7 +46,7 @@ export function HostedEmptyState() {
               ) : cloudEnabled ? (
                 <T>Your agents run on your computer.</T>
               ) : (
-                <T>Your agents run on your computer. Start Local Coding Desk there first.</T>
+                <T>Your agents run on your computer. Start Hearth there first.</T>
               )}
             </EmptyDescription>
           </EmptyHeader>

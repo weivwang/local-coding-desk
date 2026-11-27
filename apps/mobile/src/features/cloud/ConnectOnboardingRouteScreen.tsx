@@ -110,7 +110,7 @@ function ConfiguredConnectOnboardingRouteScreen() {
             </View>
             <Text className="px-2 text-sm leading-normal text-foreground-muted">
               {gt(
-                "Helps the Local Coding Desk team fix connection problems. Traces hold timings, error types, an ID for this app session, and the app version, never your threads, prompts, or code. You can change this in Settings > About Local Coding Desk > Diagnostics.",
+                "Helps the Hearth team fix connection problems. Traces hold timings, error types, an ID for this app session, and the app version, never your threads, prompts, or code. You can change this in Settings > About Hearth > Diagnostics.",
               )}
             </Text>
           </View>

@@ -660,13 +660,13 @@ export function withMessageSenderNote(
   const agent = message.createdBy === "agent";
   const note =
     agent && message.linkedSender !== undefined
-      ? `[Local Coding Desk: the agent in T3 thread ${JSON.stringify(message.linkedSender.threadId)} on linked environment ${JSON.stringify(message.linkedSender.environmentId)} sent this message, not the user.]`
+      ? `[Hearth: the agent in T3 thread ${JSON.stringify(message.linkedSender.threadId)} on linked environment ${JSON.stringify(message.linkedSender.environmentId)} sent this message, not the user.]`
       : agent && message.senderThreadId !== undefined
-        ? `[Local Coding Desk: the agent in T3 thread ${JSON.stringify(message.senderThreadId)} sent this message, not the user.]`
+        ? `[Hearth: the agent in T3 thread ${JSON.stringify(message.senderThreadId)} sent this message, not the user.]`
         : message.scheduledTaskId !== undefined
-          ? `[Local Coding Desk: scheduled task ${JSON.stringify(message.scheduledTaskId)} sent this prompt, not the user typing in this chat.]`
+          ? `[Hearth: scheduled task ${JSON.stringify(message.scheduledTaskId)} sent this prompt, not the user typing in this chat.]`
           : agent && message.creationSource === "mcp"
-            ? "[Local Coding Desk: this message came through Local Coding Desk's tools, not from the user typing in this chat.]"
+            ? "[Hearth: this message came through Hearth's tools, not from the user typing in this chat.]"
             : undefined;
   if (note === undefined || LEADING_COMMAND.test(text)) return text;
   return text === "" ? note : `${note}\n\n${text}`;
@@ -703,7 +703,7 @@ export function parseGoalCommand(message: {
   }
 }
 
-/** Why Local Coding Desk sent this `/compact` on its own, or undefined for one someone asked for. */
+/** Why Hearth sent this `/compact` on its own, or undefined for one someone asked for. */
 export function idleCompactionOf(
   message: CompactionMessageFields,
 ): OrchestrationV2IdleCompaction | undefined {
@@ -1518,7 +1518,7 @@ export const OrchestrationV2Notification = Schema.Struct({
 });
 export type OrchestrationV2Notification = typeof OrchestrationV2Notification.Type;
 
-/** Why Local Coding Desk compacted a thread on its own, on the `/compact` it sent. */
+/** Why Hearth compacted a thread on its own, on the `/compact` it sent. */
 export const OrchestrationV2IdleCompaction = Schema.Literals(["beforeCacheExpires", "onReturn"]);
 export type OrchestrationV2IdleCompaction = typeof OrchestrationV2IdleCompaction.Type;
 

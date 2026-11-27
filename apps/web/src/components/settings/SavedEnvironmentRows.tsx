@@ -779,9 +779,7 @@ function ConfiguredCloudLinkRow({
       ) : (
         <SettingsRow
           title={setting("t3-connect").title}
-          description={gt(
-            "Run `t3 connect link` on the host, then restart Local Coding Desk there.",
-          )}
+          description={gt("Run `t3 connect link` on the host, then restart Hearth there.")}
         />
       )}
       {signedOut && showSwitch ? null : (

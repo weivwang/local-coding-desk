@@ -20,7 +20,7 @@ export class ServerOwnsDatabaseError extends Schema.TaggedError<ServerOwnsDataba
   { stateDir: Schema.String },
 ) {
   override get message(): string {
-    return `Another Local Coding Desk process, usually a running server, owns ${this.stateDir}, and this CLI would change its database schema. Use the \`t3\` that matches the running server, or stop that server, then retry. The database was not changed.`;
+    return `Another Hearth process, usually a running server, owns ${this.stateDir}, and this CLI would change its database schema. Use the \`t3\` that matches the running server, or stop that server, then retry. The database was not changed.`;
   }
 }
 
@@ -46,7 +46,7 @@ const damagedDatabaseError = (dbPath: string, cause: SqlError.SqlError) =>
     reason: new SqlError.UnknownError({
       cause,
       operation: "open",
-      message: `The Local Coding Desk database at ${dbPath} is damaged or is not a SQLite database, so Local Coding Desk cannot start. To recover, quit Local Coding Desk, then move that file and any -wal and -shm files next to it out of the folder, or replace them with a backup. Local Coding Desk creates a new database on the next start.`,
+      message: `The Hearth database at ${dbPath} is damaged or is not a SQLite database, so Hearth cannot start. To recover, quit Hearth, then move that file and any -wal and -shm files next to it out of the folder, or replace them with a backup. Hearth creates a new database on the next start.`,
     }),
   });
 

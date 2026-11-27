@@ -1,4 +1,4 @@
-export const GITHUB_REPOSITORY_URL = "https://github.com/weivwang/local-coding-desk";
+export const GITHUB_REPOSITORY_URL = "https://github.com/weivwang/hearth";
 
 export const IOS_APP_STORE_URL =
   "https://apps.apple.com/us/app/t3-code-remote-claude-more/id6787819824";

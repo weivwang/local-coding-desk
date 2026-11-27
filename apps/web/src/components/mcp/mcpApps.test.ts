@@ -5,16 +5,16 @@ import { MCP_APPS, mcpHandoffAction } from "./mcpApps";
 const MCP_URL = "https://prod-a1.t3coderelay.com/mcp?x=1&y=two words";
 
 describe("MCP app links", () => {
-  it("fill in Local Coding Desk and the encoded URL", () => {
+  it("fill in Hearth and the encoded URL", () => {
     const opened = (id: string) => {
       const app = MCP_APPS.find((candidate) => candidate.id === id)!;
       return new URL(mcpHandoffAction(app, MCP_URL)!.link);
     };
     const poke = opened("poke");
-    expect(poke.searchParams.get("name")).toBe("Local Coding Desk");
+    expect(poke.searchParams.get("name")).toBe("Hearth");
     expect(poke.searchParams.get("url")).toBe(MCP_URL);
     const claude = opened("claude");
-    expect(claude.searchParams.get("connectorName")).toBe("Local Coding Desk");
+    expect(claude.searchParams.get("connectorName")).toBe("Hearth");
     expect(claude.searchParams.get("connectorUrl")).toBe(MCP_URL);
   });
 

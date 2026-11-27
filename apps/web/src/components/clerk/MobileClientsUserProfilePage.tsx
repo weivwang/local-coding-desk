@@ -107,8 +107,8 @@ function EmptyMobileClients() {
         </EmptyTitle>
         <EmptyDescription>
           <T>
-            Install Local Coding Desk on your phone and sign in to T3 Connect to get push
-            notifications and Live Activities.
+            Install Hearth on your phone and sign in to T3 Connect to get push notifications and
+            Live Activities.
           </T>
         </EmptyDescription>
       </EmptyHeader>

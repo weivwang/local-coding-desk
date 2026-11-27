@@ -31,7 +31,7 @@ const GNOME_ACCESS_COPY = {
   "not-installed": {
     title: msg("Install the extension"),
     description: msg(
-      "The Local Coding Desk GNOME extension lets you capture other windows and bring them into your draft. Sign out once after installing.",
+      "The Hearth GNOME extension lets you capture other windows and bring them into your draft. Sign out once after installing.",
     ),
   },
   "restart-required": {
@@ -48,7 +48,7 @@ const GNOME_ACCESS_COPY = {
   },
   disabled: {
     title: msg("Enable the extension"),
-    description: msg("Enable Local Coding Desk SnapShots to start capturing windows."),
+    description: msg("Enable Hearth SnapShots to start capturing windows."),
   },
   enabled: {
     title: msg("Capture is ready"),
@@ -60,7 +60,7 @@ const GNOME_ACCESS_COPY = {
   },
   error: {
     title: msg("Couldn't set up the extension"),
-    description: msg("Check Local Coding Desk SnapShots in GNOME Extensions, then try again."),
+    description: msg("Check Hearth SnapShots in GNOME Extensions, then try again."),
   },
 };
 
@@ -178,7 +178,7 @@ export function SnapShotSetupDialog({
                       ? gt("Update the capture helper")
                       : gt("Allow snapshots"),
                   description: gt(
-                    "Local Coding Desk's capture helper lets you capture other apps and return to your draft. It's included with Local Coding Desk.",
+                    "Hearth's capture helper lets you capture other apps and return to your draft. It's included with Hearth.",
                   ),
                 }
           : backend === "niri"
@@ -370,7 +370,7 @@ export function SnapShotSetupDialog({
                   ))}
                   {step === "access" && (backend === "gnome" || helperBackend) ? (
                     <p>
-                      <T>Included with Local Coding Desk. No download needed.</T>
+                      <T>Included with Hearth. No download needed.</T>
                     </p>
                   ) : null}
                   {step === "access" && backend === "gnome" && extension?.status === "enabled" ? (

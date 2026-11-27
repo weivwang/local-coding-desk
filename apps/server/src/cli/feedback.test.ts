@@ -59,7 +59,7 @@ it("feedback subjects name every listed t3 command", () => {
 
 const hidden = (tool: string) =>
   new McpBridge.AcpMcpBridgeError({
-    message: "Local Coding Desk MCP tools/call failed.",
+    message: "Hearth MCP tools/call failed.",
     rpcError: { code: -32602, message: `Tool '${tool}' not found` },
   });
 
@@ -113,9 +113,9 @@ it.effect("points to Labs only when the server hides the feedback tool", () =>
           Effect.fail(
             new McpBridge.AcpMcpBridgeError({ message: "fetch failed: connection refused" }),
           ),
-        stderr: `Could not reach the Local Coding Desk server at ${runtimeState.origin}.`,
+        stderr: `Could not reach the Hearth server at ${runtimeState.origin}.`,
       },
-      { args: submit, running: false, stderr: "No running Local Coding Desk server uses" },
+      { args: submit, running: false, stderr: "No running Hearth server uses" },
     ];
     for (const { args, running, call, stderr } of cases) {
       yield* running === false

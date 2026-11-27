@@ -172,7 +172,7 @@ export function LocalPreviewScreen(props: {
                     variant="plain"
                     title={
                       outdated
-                        ? gt("Update Local Coding Desk on {environment}", {
+                        ? gt("Update Hearth on {environment}", {
                             environment: environmentLabel,
                           })
                         : disconnected
@@ -182,7 +182,7 @@ export function LocalPreviewScreen(props: {
                     detail={
                       outdated
                         ? gt(
-                            "{environment} runs a version of Local Coding Desk that can't open its localhost pages on this device. Update it there, then try again.",
+                            "{environment} runs a version of Hearth that can't open its localhost pages on this device. Update it there, then try again.",
                             { environment: environmentLabel },
                           )
                         : disconnected

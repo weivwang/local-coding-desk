@@ -1597,9 +1597,7 @@ describe("OrchestratorMcpService provider resolution", () => {
     version: input.enabled === false ? null : "test",
     status: input.enabled === false ? "disabled" : "ready",
     auth: { status: input.enabled === false ? "unknown" : "authenticated" },
-    ...(input.enabled === false
-      ? { message: "Provider is disabled in Local Coding Desk settings." }
-      : {}),
+    ...(input.enabled === false ? { message: "Provider is disabled in Hearth settings." } : {}),
     checkedAt: "2026-09-13T00:00:00.000Z",
     models:
       input.model === undefined

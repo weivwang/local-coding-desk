@@ -528,7 +528,7 @@ function armAgentAwarenessLiveActivityForLocalWorkNow(input: {
     const activity = startAgentLiveActivity(
       {
         text: agentActivityText(1, m),
-        title: "Local Coding Desk",
+        title: "Hearth",
         subtitle: m(msg("Agent work in progress")),
         activeCount: 1,
         updatedAt: nowIso,

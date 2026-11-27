@@ -31,7 +31,7 @@ describe("extractToolActivityPresentation", () => {
       toolSource: source,
       input: {
         title: "Restrict the breakpoint to Git actions",
-        code: "await sky.type_text({app:'Local Coding Desk (Nightly)',text:'debug(ga.run)'});",
+        code: "await sky.type_text({app:'Hearth (Nightly)',text:'debug(ga.run)'});",
       },
     };
     expect(extractToolActivityPresentation(item)).toEqual({

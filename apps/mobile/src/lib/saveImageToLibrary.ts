@@ -15,7 +15,7 @@ export function canSaveImageToLibrary(mimeType: string): boolean {
   );
 }
 
-/** Adds a local image file to Photos on iOS or Pictures/Local Coding Desk on Android. */
+/** Adds a local image file to Photos on iOS or Pictures/Hearth on Android. */
 export function saveImageToLibrary(uri: string, mimeType: string, name: string): Promise<void> {
   return requireNativeModule<{
     saveImageToLibrary(uri: string, mimeType: string, name: string): Promise<void>;

@@ -515,7 +515,7 @@ export const make = Effect.fn("ProviderMaintenanceRunner.make")(function* () {
                   message:
                     targetVersion !== undefined
                       ? "This version is no longer recommended or this installer cannot install a specific version. Refresh provider settings."
-                      : "The latest provider version is incompatible with this Local Coding Desk release. Review provider settings.",
+                      : "The latest provider version is incompatible with this Hearth release. Review provider settings.",
                 }),
               );
             }
@@ -629,9 +629,9 @@ export const make = Effect.fn("ProviderMaintenanceRunner.make")(function* () {
                 startedAt,
                 finishedAt,
                 message: couldNotVerify
-                  ? "Update command completed, but Local Coding Desk could not verify the provider version."
+                  ? "Update command completed, but Hearth could not verify the provider version."
                   : stillOutdated
-                    ? "Update command completed, but Local Coding Desk still detects an outdated provider version."
+                    ? "Update command completed, but Hearth still detects an outdated provider version."
                     : needsOpenCodeServerRestart(verifiedProviders)
                       ? OPENCODE_SERVER_RESTART_MESSAGE
                       : "Provider updated.",

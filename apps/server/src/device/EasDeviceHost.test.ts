@@ -189,7 +189,7 @@ const fakeExpo = (
                           node: {
                             id: "someone-else",
                             status: "IN_PROGRESS",
-                            name: "Local Coding Desk · Expo Simulators · 000000",
+                            name: "Hearth · Expo Simulators · 000000",
                           },
                         },
                         ...(options.active ?? []).map((node) => ({ node })),

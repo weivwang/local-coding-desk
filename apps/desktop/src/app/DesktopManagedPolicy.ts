@@ -39,7 +39,7 @@ export const layer = Layer.effect(
     const read = yield* Effect.cached(
       readManagedPolicy(platform).pipe(
         Effect.flatMap((found) => {
-          const source = found?.source ?? "Local Coding Desk";
+          const source = found?.source ?? "Hearth";
           return restrictToLocalDesktop(source, found?.document).pipe(
             Effect.map((document) => ({ source, document })),
           );

@@ -63,8 +63,8 @@ const CLAUDE_HOST_SESSION_VARIABLES = [
 ];
 
 /**
- * Base env for the Claude processes Local Coding Desk runs, before `makeClaudeEnvironment`.
- * Claude Code reads its entrypoint from the process env, not its settings `env`, so Local Coding Desk applies that override itself.
+ * Base env for the Claude processes Hearth runs, before `makeClaudeEnvironment`.
+ * Claude Code reads its entrypoint from the process env, not its settings `env`, so Hearth applies that override itself.
  */
 export const mergeClaudeProcessEnvironment = Effect.fn("mergeClaudeProcessEnvironment")(function* (
   config: Pick<ClaudeSettings, "homePath">,
@@ -77,7 +77,7 @@ export const mergeClaudeProcessEnvironment = Effect.fn("mergeClaudeProcessEnviro
   };
   for (const name of CLAUDE_HOST_SESSION_VARIABLES) delete baseEnvironment[name];
   // The desktop runs the server as Node through Electron. Commands Claude runs inherit its env, so
-  // an Electron app they start (Local Coding Desk itself, VS Code) would run as Node and exit.
+  // an Electron app they start (Hearth itself, VS Code) would run as Node and exit.
   delete baseEnvironment.ELECTRON_RUN_AS_NODE;
   const environment = yield* mergeProviderInstanceEnvironment(instanceEnvironment, baseEnvironment);
   const settingsEntrypoint = (yield* readClaudeSettingsEnv(config, undefined, environment))

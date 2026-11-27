@@ -21,9 +21,9 @@ const defaultEnvironmentInput = {
   platform: "darwin",
   processArch: "arm64",
   appVersion: "1.2.3",
-  appPath: "/Applications/Local Coding Desk.app/Contents/Resources/app.asar",
+  appPath: "/Applications/Hearth.app/Contents/Resources/app.asar",
   isPackaged: true,
-  resourcesPath: "/Applications/Local Coding Desk.app/Contents/Resources",
+  resourcesPath: "/Applications/Hearth.app/Contents/Resources",
   runningUnderArm64Translation: false,
 } satisfies DesktopEnvironment.MakeDesktopEnvironmentInput;
 
@@ -40,7 +40,7 @@ interface ElectronAppCalls {
 const layerElectronApp = (calls: ElectronAppCalls) =>
   Layer.succeed(ElectronApp.ElectronApp, {
     metadata: Effect.die("unexpected metadata read"),
-    name: Effect.succeed("Local Coding Desk"),
+    name: Effect.succeed("Hearth"),
     systemLocale: Effect.succeed("en-US"),
     preferredSystemLanguages: Effect.succeed(["en-US"]),
     whenReady: Effect.void,
@@ -201,12 +201,9 @@ describe("DesktopAppIdentity", () => {
 
         const runtimeName = calls.setName[0];
         assert.isDefined(runtimeName);
-        assert.equal(runtimeName, `Local Coding Desk ${stage}`);
+        assert.equal(runtimeName, `Hearth ${stage}`);
         assert.match(runtimeName.replaceAll(" ", ""), /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/);
-        assert.equal(
-          calls.setAboutPanelOptions[0]?.applicationName,
-          `Local Coding Desk (${stage})`,
-        );
+        assert.equal(calls.setAboutPanelOptions[0]?.applicationName, `Hearth (${stage})`);
       }),
       { calls, environment },
     );

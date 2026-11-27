@@ -11,9 +11,9 @@ import { msg } from "gt-react";
 
 import { m, type MessageResolver } from "~/i18n/messages";
 
-/** How the Connect step hands Local Coding Desk's MCP URL to an app. Every `link` is https. */
+/** How the Connect step hands Hearth's MCP URL to an app. Every `link` is https. */
 export type McpAppHandoff =
-  /** Opens the app's add form with Local Coding Desk filled in. */
+  /** Opens the app's add form with Hearth filled in. */
   | { readonly kind: "open"; readonly link: (mcpUrl: string) => string }
   /** Copies the URL, then opens the page it goes on. */
   | { readonly kind: "copy-url"; readonly link: string }
@@ -112,7 +112,7 @@ export const MCP_APPS: readonly McpApp[] = [
       msg("Choose Custom apps, then Add, and paste the URL."),
     ],
     docs: "https://support.google.com/gemini/answer/17209137",
-    // Gemini's sign-in and its tool schema checks do not work with Local Coding Desk yet.
+    // Gemini's sign-in and its tool schema checks do not work with Hearth yet.
     hidden: true,
   },
   {

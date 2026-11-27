@@ -41,8 +41,8 @@ export const ManagedProviderLimits = Schema.Struct({
 export type ManagedProviderLimits = typeof ManagedProviderLimits.Type;
 
 /**
- * How Local Coding Desk updates itself. `auto` is the default: it checks, and installs only when a user
- * asks. `off` never checks, for machines that get Local Coding Desk through MDM.
+ * How Hearth updates itself. `auto` is the default: it checks, and installs only when a user
+ * asks. `off` never checks, for machines that get Hearth through MDM.
  */
 export const ManagedUpdatesMode = Schema.Literals(["auto", "off"]);
 export type ManagedUpdatesMode = typeof ManagedUpdatesMode.Type;

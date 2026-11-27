@@ -526,9 +526,9 @@ it.layer(layerCodexTextGenerationTest)("CodexTextGeneration", (it) => {
     ),
   );
 
-  it.effect("identifies codex exec as Local Coding Desk", () =>
+  it.effect("identifies codex exec as Hearth", () =>
     withFakeCodexEnv(
-      { output: JSON.stringify({ title: "Live title" }), requireOriginator: "Local Coding Desk" },
+      { output: JSON.stringify({ title: "Live title" }), requireOriginator: "Hearth" },
       (textGeneration) =>
         Effect.gen(function* () {
           const result = yield* textGeneration.generateThreadTitle({

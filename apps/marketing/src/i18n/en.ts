@@ -2,13 +2,13 @@
 // `{name}` placeholders are filled at render time and must survive translation.
 export const en = {
   layout: {
-    defaultTitle: "Local Coding Desk",
-    defaultDescription: "Local Coding Desk. The open-source control plane for coding agents.",
+    defaultTitle: "Hearth",
+    defaultDescription: "Hearth. The open-source control plane for coding agents.",
     socialImageAlt:
-      "Local Coding Desk: the open-source control plane for coding agents, with Claude Code, Codex, Cursor, OpenCode, Grok and Antigravity.",
-    homeLabel: "Local Coding Desk home",
+      "Hearth: the open-source control plane for coding agents, with Claude Code, Codex, Cursor, OpenCode, Grok and Antigravity.",
+    homeLabel: "Hearth home",
     download: "Download",
-    starsLabel: "Star Local Coding Desk on GitHub, {stars} stars",
+    starsLabel: "Star Hearth on GitHub, {stars} stars",
     githubStars: "{stars} GitHub stars",
     language: "Language",
     mitLicensed: "MIT licensed",
@@ -19,8 +19,8 @@ export const en = {
     security: "Security",
   },
   home: {
-    title: "Local Coding Desk | The open-source control plane for coding agents",
-    description: "Local Coding Desk. The open-source control plane for coding agents.",
+    title: "Hearth | The open-source control plane for coding agents",
+    description: "Hearth. The open-source control plane for coding agents.",
     heroTitle: ["The open-source", "control plane", "for coding agents."],
     heroSub:
       "Orchestrate Claude Code, Codex, Antigravity, OpenCode, Cursor, and Grok from one surface. Bring your own subscription. Fork the whole thing.",
@@ -31,15 +31,14 @@ export const en = {
     downloadForAndroid: "Download for Android",
     sourceLink: "Steal our code (legally)",
     alsoOnPhone: "Also on your phone:",
-    screenshotAlt:
-      "Local Coding Desk running Claude, Codex, Muse, and Gemini subagents in one thread",
+    screenshotAlt: "Hearth running Claude, Codex, Muse, and Gemini subagents in one thread",
     endorsementsTitle: "Tolerated by over {users} devs",
     endorsementsSub: "Some of them even tweeted about it.",
     endorsementsLabel: "Developer endorsements",
     readPost: "Read {handle}'s post on X",
     harnessTitle: "Bring your own sub",
     harnessBody:
-      "Local Coding Desk doesn't resell tokens. Plug in Claude Code, Codex, Antigravity, OpenCode, Cursor, or Grok with the credentials you already have. We orchestrate them, you keep your plan.",
+      "Hearth doesn't resell tokens. Plug in Claude Code, Codex, Antigravity, OpenCode, Cursor, or Grok with the credentials you already have. We orchestrate them, you keep your plan.",
     googleSignIn: "Google sign-in",
     harnessPoints: [
       "No keys resold. No quota caps.",
@@ -47,7 +46,7 @@ export const en = {
       "More harnesses shipping weekly.",
     ],
     gitVisualLabel:
-      "Illustration of the Local Coding Desk Git workflow: review a diff, commit and push changes, and open a pull request.",
+      "Illustration of the Hearth Git workflow: review a diff, commit and push changes, and open a pull request.",
     prReady: "Ready",
     prCommits: "3 commits",
     viewDiff: "View diff",
@@ -73,15 +72,15 @@ export const en = {
     browseSource: "Browse source",
     ctaTitle: "Your agents deserve better than a terminal.",
     ctaSub:
-      "Local Coding Desk is free, open source and fast. Install it, plug in the harness you already pay for, and let your agents get to work.",
+      "Hearth is free, open source and fast. Install it, plug in the harness you already pay for, and let your agents get to work.",
     otherPlatforms: "Other platforms",
   },
   download: {
-    title: "Download Local Coding Desk for macOS, Windows, and Linux | Local Coding Desk",
+    title: "Download Hearth for macOS, Windows, and Linux | Hearth",
     description:
-      "Download the official Local Coding Desk desktop app for macOS, Windows, or Linux, or get the iOS and Android apps. t3.codes is the only official download site.",
+      "Download the official Hearth desktop app for macOS, Windows, or Linux, or get the iOS and Android apps. t3.codes is the only official download site.",
     breadcrumb: "Download",
-    heading: "Download Local Coding Desk",
+    heading: "Download Hearth",
     channelLabel: "Release channel",
     stable: "Stable",
     nightly: "Nightly",

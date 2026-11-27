@@ -599,7 +599,7 @@ export const makeCodexChatGptAuth = Effect.fn("makeCodexChatGptAuth")(function* 
               ? { prompt: "consent" }
               : {}),
           }
-        : { agent_name_hint: "Local Coding Desk" }),
+        : { agent_name_hint: "Hearth" }),
       ext_agent_host_id: hostId,
       response_type: "code",
       redirect_uri: redirectUri,

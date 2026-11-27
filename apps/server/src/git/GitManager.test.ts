@@ -1095,7 +1095,7 @@ it.layer(layerGitManagerTest)("GitManager", (it) => {
         ),
       ).toEqual([]);
 
-      // A remote added outside Local Coding Desk shows on the next read.
+      // A remote added outside Hearth shows on the next read.
       yield* runGit(repoDir, [
         "remote",
         "add",

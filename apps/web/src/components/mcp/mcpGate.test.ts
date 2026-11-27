@@ -143,7 +143,7 @@ describe("resolveMcpGate", () => {
           cause: "no_connector",
           reason: "Cloudflare has no live connection from this machine for the tunnel.",
           hint: null,
-          fix: "Restart Local Coding Desk.",
+          fix: "Restart Hearth.",
         },
       },
       "offline",

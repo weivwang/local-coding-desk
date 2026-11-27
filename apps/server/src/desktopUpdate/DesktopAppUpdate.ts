@@ -134,7 +134,7 @@ export const make = Effect.fn("desktopUpdate.desktopAppUpdate.make")(function* (
         return { targetVersion: report.state.currentVersion, method: "desktop-app" as const };
       }
       return yield* failWith(
-        `The Local Coding Desk desktop app on this machine is already up to date on ${report.state.currentVersion}.`,
+        `The Hearth desktop app on this machine is already up to date on ${report.state.currentVersion}.`,
       );
     }
     const reason = report.reason ?? report.state.message ?? "The desktop app update failed.";
@@ -155,7 +155,7 @@ export const make = Effect.fn("desktopUpdate.desktopAppUpdate.make")(function* (
     function* (reportProgress, trackSwitch) {
       if (!available) {
         return yield* failWith(
-          "This server was not started by the Local Coding Desk desktop app, so it cannot drive a desktop update.",
+          "This server was not started by the Hearth desktop app, so it cannot drive a desktop update.",
         );
       }
       if (yield* Ref.getAndSet(inFlight, true)) {
@@ -177,10 +177,7 @@ export const make = Effect.fn("desktopUpdate.desktopAppUpdate.make")(function* (
             .requestDesktopUpdate(requestId, trackSwitch)
             .pipe(
               Effect.mapError((error) =>
-                failWith(
-                  "Could not reach the Local Coding Desk desktop app on this machine.",
-                  error,
-                ),
+                failWith("Could not reach the Hearth desktop app on this machine.", error),
               ),
             );
           return yield* consumeReports(
@@ -217,9 +214,7 @@ export const make = Effect.fn("desktopUpdate.desktopAppUpdate.make")(function* (
         });
         yield* Effect.uninterruptible(
           receiver.commitDesktopUpdate(requestId).pipe(
-            Effect.mapError((error) =>
-              failWith("Could not reach the Local Coding Desk desktop app.", error),
-            ),
+            Effect.mapError((error) => failWith("Could not reach the Hearth desktop app.", error)),
             Effect.tap(() => onHandoffAccepted()),
           ),
         );

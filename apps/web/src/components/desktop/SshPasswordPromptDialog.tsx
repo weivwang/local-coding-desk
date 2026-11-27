@@ -177,8 +177,8 @@ function ActiveSshPasswordPrompt({
               <code>
                 <Var>{target}</Var>
               </code>
-              . Local Coding Desk passes your response to the local SSH process and keeps it in
-              memory to reuse for this host. Local Coding Desk does not write it to disk.
+              . Hearth passes your response to the local SSH process and keeps it in memory to reuse
+              for this host. Hearth does not write it to disk.
             </T>
           </DialogDescription>
         </DialogHeader>

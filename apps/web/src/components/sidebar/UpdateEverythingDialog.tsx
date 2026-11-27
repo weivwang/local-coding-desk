@@ -142,7 +142,7 @@ function UpdateEverythingDialogContent({
         <AlertDialogDescription>
           {version !== null ? (
             <>
-              Local Coding Desk <span className="font-mono text-xs">{version}</span>
+              Hearth <span className="font-mono text-xs">{version}</span>
             </>
           ) : null}
           {version !== null && providerCount > 0 ? " · " : null}
@@ -176,7 +176,7 @@ function UpdateEverythingDialogContent({
               <span role="columnheader">
                 <T>Machine</T>
               </span>
-              <span role="columnheader">Local Coding Desk</span>
+              <span role="columnheader">Hearth</span>
               <span role="columnheader">
                 <T>Providers</T>
               </span>

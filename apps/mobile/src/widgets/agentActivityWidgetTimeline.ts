@@ -73,7 +73,7 @@ export function agentActivityWidgetTimeline(
   if (source.kind !== "snapshot" || !source.aggregate) {
     const props: AgentActivityProps = {
       text: agentActivityText(0, resolve),
-      title: "Local Coding Desk",
+      title: "Hearth",
       subtitle:
         source.kind === "signed-out"
           ? resolve(msg("Sign in to {product} to see agents", { product: "T3 Connect" }))

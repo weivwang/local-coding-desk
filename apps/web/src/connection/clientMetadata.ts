@@ -78,7 +78,7 @@ export function clientPresentationMetadata(input: {
   if (input.desktopBridge !== undefined) {
     return {
       // oxlint-disable-next-line t3code/no-untranslated-copy -- client label stored on the server
-      label: "Local Coding Desk Desktop",
+      label: "Hearth Desktop",
       deviceType: "desktop",
       os: clientOsFromElectronPlatform(input.desktopBridge.getClientPlatform()),
       surface: "desktop",
@@ -88,7 +88,7 @@ export function clientPresentationMetadata(input: {
 
   return {
     // oxlint-disable-next-line t3code/no-untranslated-copy -- client label stored on the server
-    label: "Local Coding Desk Web",
+    label: "Hearth Web",
     deviceType: browserDeviceType(input.identity),
     os: browserClientOs(input.identity),
     surface: "web",

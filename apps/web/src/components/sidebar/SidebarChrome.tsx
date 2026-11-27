@@ -15,7 +15,7 @@ import {
 import { primaryServerKeybindingsAtom } from "../../state/server";
 import { cn } from "../../lib/utils";
 import { useIssuesSupported, usePullRequestsSupported } from "../../state/environments";
-import { LocalDeskMark } from "../LocalDeskMark";
+import { HearthMark } from "../HearthMark";
 import { APP_BASE_NAME } from "~/branding";
 import {
   resolveEnvironmentIdentificationPillLabel,
@@ -172,7 +172,7 @@ function SidebarBrand({ onBackdrop }: { onBackdrop: boolean }) {
   const gt = useGT();
   return (
     <Link
-      aria-label={gt("Local Coding Desk home")}
+      aria-label={gt("Hearth home")}
       className={cn(
         "relative z-10 ml-[var(--workspace-titlebar-content-left)] hidden h-7 w-fit min-w-0 shrink-0 items-center overflow-hidden rounded-md outline-hidden ring-ring focus-visible:ring-2 focus-visible:ring-inset md:flex",
         onBackdrop ? "text-white" : "text-foreground",
@@ -186,12 +186,12 @@ function SidebarBrand({ onBackdrop }: { onBackdrop: boolean }) {
 
 function SidebarBrandMark({ onBackdrop }: { onBackdrop: boolean }) {
   return (
-    <span className="inline-flex min-w-0 items-baseline gap-1 text-sm font-medium tracking-tight">
-      <LocalDeskMark aria-hidden className="h-[1cap] w-auto shrink-0" />
+    <span className="inline-flex min-w-0 items-baseline gap-1.5 text-sm font-medium tracking-tight">
+      <HearthMark aria-hidden className="h-[1.1em] w-auto shrink-0 self-center text-brand" />
       <span
         className={cn(
-          "truncate [text-box:trim-both_cap_alphabetic] supports-[text-box:trim-both_cap_alphabetic]:py-1",
-          onBackdrop ? "text-white/70" : "text-muted-foreground",
+          "truncate font-semibold [text-box:trim-both_cap_alphabetic] supports-[text-box:trim-both_cap_alphabetic]:py-1",
+          onBackdrop ? "text-white" : "text-foreground",
         )}
       >
         {APP_BASE_NAME}

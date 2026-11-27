@@ -32,12 +32,9 @@ export function orchestrationProtocolCompatibilityError(
     : new ConnectionBlockedError({
         reason: "unsupported",
         ...translatableDetail(
-          msg(
-            "This client requires a newer server. Update Local Coding Desk on {host} to connect.",
-            {
-              host: descriptor.label,
-            },
-          ),
+          msg("This client requires a newer server. Update Hearth on {host} to connect.", {
+            host: descriptor.label,
+          }),
         ),
         ...(canSelfUpdate(descriptor) ? { serverUpdateRequired: true } : {}),
       });

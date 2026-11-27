@@ -60,7 +60,7 @@ export class DesktopAppUnreachableError extends Schema.TaggedError<DesktopAppUnr
   },
 ) {
   override get message(): string {
-    return "Could not reach the Local Coding Desk desktop app. Start or update the desktop app on this machine, then run `t3 app` again. A running Local Coding Desk server is not enough.";
+    return "Could not reach the Hearth desktop app. Start or update the desktop app on this machine, then run `t3 app` again. A running Hearth server is not enough.";
   }
 }
 
@@ -74,7 +74,7 @@ export class DesktopAppRequestFailedError extends Schema.TaggedError<DesktopAppR
   },
 ) {
   override get message(): string {
-    return `Local Coding Desk could not open ${this.workspaceRoot} (${this.code}).`;
+    return `Hearth could not open ${this.workspaceRoot} (${this.code}).`;
   }
 }
 
@@ -266,7 +266,7 @@ const runAppCommand = Effect.fn("cli.app")(function* (flags: {
     });
   }
 
-  yield* Console.log(`Opened ${workspaceRoot} in Local Coding Desk.`);
+  yield* Console.log(`Opened ${workspaceRoot} in Hearth.`);
 });
 
 export const appCommand = Command.make("app", {
@@ -276,6 +276,6 @@ export const appCommand = Command.make("app", {
     Argument.optional,
   ),
 }).pipe(
-  Command.withDescription("Open a project in the running Local Coding Desk desktop app."),
+  Command.withDescription("Open a project in the running Hearth desktop app."),
   Command.withHandler(runAppCommand),
 );

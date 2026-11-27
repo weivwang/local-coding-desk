@@ -133,7 +133,7 @@ it.layer(NodeServices.layer)("providerStatusCache", (it) => {
       version: null,
       status: "disabled",
       auth: { status: "unknown" },
-      message: "Codex is disabled in Local Coding Desk settings.",
+      message: "Codex is disabled in Hearth settings.",
     });
 
     assert.deepStrictEqual(

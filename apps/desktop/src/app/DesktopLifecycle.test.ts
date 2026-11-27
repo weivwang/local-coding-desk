@@ -38,7 +38,7 @@ function layerElectronApp(
 
   return Layer.succeed(ElectronApp.ElectronApp, {
     metadata: Effect.die("unexpected metadata read"),
-    name: Effect.succeed("Local Coding Desk"),
+    name: Effect.succeed("Hearth"),
     systemLocale: Effect.succeed("en-US"),
     preferredSystemLanguages: Effect.succeed(["en-US"]),
     whenReady: Effect.void,
@@ -260,9 +260,9 @@ describe("DesktopLifecycle", () => {
         return yield* Deferred.await(relaunched);
       }).pipe(
         Effect.provide(layer),
-        Effect.provideService(HostProcess.ExecutablePath, "/opt/Local Coding Desk/t3code"),
+        Effect.provideService(HostProcess.ExecutablePath, "/opt/Hearth/t3code"),
         Effect.provideService(HostProcess.Arguments, [
-          "/opt/Local Coding Desk/t3code",
+          "/opt/Hearth/t3code",
           "--no-sandbox",
           "T3CODE://pair?token=spent",
           "t3code://new?prompt=hello",
@@ -270,7 +270,7 @@ describe("DesktopLifecycle", () => {
       );
 
       assert.deepEqual(options, {
-        execPath: "/opt/Local Coding Desk/t3code",
+        execPath: "/opt/Hearth/t3code",
         args: ["--no-sandbox"],
       });
     }),

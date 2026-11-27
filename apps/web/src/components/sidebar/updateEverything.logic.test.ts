@@ -99,13 +99,13 @@ describe("collectServerUpdateTargets", () => {
       ["no-scope", "no permission"],
       ["busy", "already updating"],
       ["manual", "needs a manual update"],
-      ["wsl-backend", "update Local Coding Desk on that machine"],
+      ["wsl-backend", "update Hearth on that machine"],
     ]);
   });
 
   it("says why a disconnected server was skipped when its connection says", () => {
     const replaced =
-      "This address now runs a different Local Coding Desk install (b7a4, not 0359). Remove this connection and add it again.";
+      "This address now runs a different Hearth install (b7a4, not 0359). Remove this connection and add it again.";
     const { skipped } = collectServerUpdateTargets(
       [
         machine("replaced", "0.0.40", "boot-service", {
@@ -294,7 +294,7 @@ describe("collectChannelSwitchTargets", () => {
         `its database has changes ${NIGHTLY} does not support yet; stay on Stable until Nightly has them`,
       ],
       ["old-desktop", "change the update track on that machine"],
-      ["behind-desktop", "update Local Coding Desk on that machine"],
+      ["behind-desktop", "update Hearth on that machine"],
       ["no-nightly", "Example Corp manages app updates. Only stable releases can be installed."],
     ]);
   });
@@ -444,7 +444,7 @@ describe("runUpdateEverything", () => {
 });
 
 describe("describeUpdateEverything", () => {
-  it("gives each machine one row with its Local Coding Desk and provider updates", () => {
+  it("gives each machine one row with its Hearth and provider updates", () => {
     const id = EnvironmentId.make;
     const { rows } = describeUpdateEverything({
       localVersion: "1.1.0",

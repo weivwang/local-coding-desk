@@ -179,7 +179,7 @@ describe("McpAppFrame", () => {
     await expect
       .element(
         screen.getByText(
-          "The Demo app needs a newer Local Coding Desk server on this environment. Update the server to use it.",
+          "The Demo app needs a newer Hearth server on this environment. Update the server to use it.",
         ),
       )
       .toBeInTheDocument();

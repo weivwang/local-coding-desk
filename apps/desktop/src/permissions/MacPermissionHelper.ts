@@ -62,8 +62,8 @@ button:focus-visible { outline: 2px solid #007aff; outline-offset: -2px; }
 img { width: 32px; height: 32px; pointer-events: none; }
 </style></head><body><main id="panel">
 <button id="close" aria-label="${escapeHtml(m(msg("Close permission helper")))}">×</button>
-<header>${escapeHtml(m(msg("↑ Drag Local Coding Desk into the list above")))}</header>
-<button id="app" draggable="true" aria-label="${escapeHtml(m(msg("Drag Local Coding Desk to System Settings, or click to reveal in Finder")))}"><img src="${escapeHtml(icon)}" alt="" draggable="false">Local Coding Desk</button>
+<header>${escapeHtml(m(msg("↑ Drag Hearth into the list above")))}</header>
+<button id="app" draggable="true" aria-label="${escapeHtml(m(msg("Drag Hearth to System Settings, or click to reveal in Finder")))}"><img src="${escapeHtml(icon)}" alt="" draggable="false">Hearth</button>
 </main></body></html>`;
 }
 
@@ -95,7 +95,7 @@ export class MacPermissionHelper {
     const appIcon = iconPaths
       .map((iconPath) => Electron.nativeImage.createFromPath(iconPath))
       .find((image) => !image.isEmpty());
-    if (!appIcon) throw new Error("The packaged Local Coding Desk icon is missing.");
+    if (!appIcon) throw new Error("The packaged Hearth icon is missing.");
     const icon = appIcon.resize({ width: 64, height: 64 });
     const window = new Electron.BrowserWindow({
       width: 560,

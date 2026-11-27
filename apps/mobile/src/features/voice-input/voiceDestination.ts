@@ -178,7 +178,7 @@ function environmentTranscriber(
       if (!native?.decodeRecording)
         throw new VoiceTranscriptionError({
           code: "unavailable",
-          message: m(msg("Update Local Coding Desk to transcribe on an environment.")),
+          message: m(msg("Update Hearth to transcribe on an environment.")),
         });
       return native.decodeRecording(uri);
     },

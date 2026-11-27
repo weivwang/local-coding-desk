@@ -54,9 +54,9 @@ const results = (state: SupervisorConnectionState, via?: "relay" | "direct") =>
   diagnose(state, via)?.hops.map((hop) => `${hop.hop}:${hop.result}`);
 
 describe("presentConnectionDiagnosis", () => {
-  it("tells a working tunnel apart from Local Coding Desk not answering", () => {
+  it("tells a working tunnel apart from Hearth not answering", () => {
     expect(diagnose(backoff(unavailable("origin_unreachable")))?.headline).toBe(
-      "Tunnel works, but Local Coding Desk on Mac mini did not answer",
+      "Tunnel works, but Hearth on Mac mini did not answer",
     );
     expect(results(backoff(unavailable("origin_unreachable")), "direct")).toEqual([
       "device:ok",
@@ -164,7 +164,7 @@ describe("presentConnectionDiagnosis", () => {
     expect(diagnosis?.steps.join(" ")).toContain("t3 auth connect-device approve K7QM-2XFD");
   });
 
-  it("tells a host that refused this device's login to sign in again, not to start Local Coding Desk", () => {
+  it("tells a host that refused this device's login to sign in again, not to start Hearth", () => {
     const failure = mapRemoteEnvironmentError(
       new EnvironmentAuthInvalidError({
         code: "auth_invalid",
@@ -173,7 +173,7 @@ describe("presentConnectionDiagnosis", () => {
       }),
     );
     const steps = diagnose(backoff(failure), "direct")?.steps.join(" ");
-    expect(steps).not.toContain("Make sure Local Coding Desk is running");
+    expect(steps).not.toContain("Make sure Hearth is running");
     expect(steps).toMatch(/pair|sign in/i);
   });
 

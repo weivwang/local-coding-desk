@@ -131,11 +131,11 @@ it("does not activate T3 until requested, then matches PID and title", async () 
   const snapshot = await captureNiriWindow(socketPath);
   expect(calls.some((call) => typeof call !== "string" && call.Action.FocusWindow)).toBe(false);
   windows = [
-    { ...window, id: 1, pid: 999, title: "Local Coding Desk" },
+    { ...window, id: 1, pid: 999, title: "Hearth" },
     { ...window, id: 2, pid: process.pid, title: "Other T3" },
-    { ...window, id: 3, pid: process.pid, title: "Local Coding Desk" },
+    { ...window, id: 3, pid: process.pid, title: "Hearth" },
   ];
-  await snapshot.feedback!.activate("Local Coding Desk");
+  await snapshot.feedback!.activate("Hearth");
   expect(calls).toContainEqual({ Action: { FocusWindow: { id: 3 } } });
 });
 
@@ -147,18 +147,18 @@ it("waits for the restored T3 window to map instead of polling", async () => {
     if (request === "EventStream")
       send(socket, {
         WindowOpenedOrChanged: {
-          window: { ...window, id: 4, pid: process.pid, title: "Local Coding Desk" },
+          window: { ...window, id: 4, pid: process.pid, title: "Hearth" },
         },
       });
   };
-  await snapshot.feedback!.activate("Local Coding Desk");
+  await snapshot.feedback!.activate("Hearth");
   expect(calls).toContainEqual({ Action: { FocusWindow: { id: 4 } } });
 });
 
 it("rejects ambiguous activation targets", async () => {
   const snapshot = await captureNiriWindow(socketPath);
-  windows = [1, 2].map((id) => ({ ...window, id, pid: process.pid, title: "Local Coding Desk" }));
-  await expect(snapshot.feedback!.activate("Local Coding Desk")).rejects.toThrow("More than one");
+  windows = [1, 2].map((id) => ({ ...window, id, pid: process.pid, title: "Hearth" }));
+  await expect(snapshot.feedback!.activate("Hearth")).rejects.toThrow("More than one");
 });
 
 it("cancels pending activation when capture feedback is closed", async () => {
@@ -169,9 +169,7 @@ it("cancels pending activation when capture feedback is closed", async () => {
     await original(request, socket);
     if (request === "EventStream") started.resolve();
   };
-  const activation = expect(snapshot.feedback!.activate("Local Coding Desk")).rejects.toThrow(
-    "cancelled",
-  );
+  const activation = expect(snapshot.feedback!.activate("Hearth")).rejects.toThrow("cancelled");
   await started.promise;
   snapshot.feedback!.close();
   await activation;

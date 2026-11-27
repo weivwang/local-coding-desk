@@ -280,7 +280,7 @@ const AGENT_FEEDBACK_CHOICES: ReadonlyArray<{
   {
     mode: "auto",
     label: msg("Automatic"),
-    description: msg("Agents also report Local Coding Desk problems they hit on their own."),
+    description: msg("Agents also report Hearth problems they hit on their own."),
   },
 ];
 

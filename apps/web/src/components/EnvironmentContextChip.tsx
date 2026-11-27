@@ -36,7 +36,7 @@ export function EnvironmentContextChip(props: {
         }
       />
       <TooltipPopup side="top">
-        {environment ? gt("Local Coding Desk environment") : gt("Machine not in this app")}
+        {environment ? gt("Hearth environment") : gt("Machine not in this app")}
       </TooltipPopup>
     </Tooltip>
   );

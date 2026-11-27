@@ -191,14 +191,14 @@ export const make = Effect.fn("cloud.server_self_update.make")(function* () {
         );
       }
       return yield* failWith(
-        "This server is managed by the Local Coding Desk desktop app on its machine; update the desktop app to update it.",
+        "This server is managed by the Hearth desktop app on its machine; update the desktop app to update it.",
       );
     }
     // The target must accept the launcher that will run it, which can be older than this server.
     const launcherProtocol = launcher.protocol;
     if (capability === null || launcherProtocol === undefined) {
       return yield* failWith(
-        "Remote updates require the Local Coding Desk background service. Run `t3 service install` on the server machine.",
+        "Remote updates require the Hearth background service. Run `t3 service install` on the server machine.",
       );
     }
 

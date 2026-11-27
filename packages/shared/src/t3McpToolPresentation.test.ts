@@ -22,7 +22,7 @@ describe("resolveT3McpToolPresentation", () => {
         "t3_code/",
         "t3code:",
         "mcp_t3-code_",
-        "Local Coding Desk ",
+        "Hearth ",
         "t3-code · ",
       ]) {
         expect(resolveT3McpToolPresentation(`${prefix}${tool} completed`), tool).toEqual(

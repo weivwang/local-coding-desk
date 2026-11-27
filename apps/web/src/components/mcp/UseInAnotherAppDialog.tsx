@@ -86,7 +86,7 @@ export function UseInAnotherAppDialogHost() {
 function UseInAnotherAppDialog({ requested }: { readonly requested: EnvironmentId | null }) {
   const { environment, label } = useAccessEnvironment(requested);
   const gt = useGT();
-  const title = `${gt("Use Local Coding Desk in another app (MCP)")} · ${label ?? "Local Coding Desk"}`;
+  const title = `${gt("Use Hearth in another app (MCP)")} · ${label ?? "Hearth"}`;
   return (
     <Dialog open onOpenChange={(open) => (open ? undefined : close())}>
       <WizardPopup>
@@ -446,11 +446,7 @@ function GateScreen({
         </GateMessage>
       );
     case "update":
-      return (
-        <GateMessage
-          title={gt("Update Local Coding Desk on {environment}", { environment: name })}
-        />
-      );
+      return <GateMessage title={gt("Update Hearth on {environment}", { environment: name })} />;
     case "no-relay-read":
       return (
         <GateMessage
@@ -517,7 +513,7 @@ function GateScreen({
               <CommandBlock command="t3 connect link" />
               <p>
                 <T>
-                  Restart Local Coding Desk on <Var>{name}</Var>.
+                  Restart Hearth on <Var>{name}</Var>.
                 </T>
               </p>
               {checkAgain}

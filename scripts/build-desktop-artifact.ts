@@ -2799,8 +2799,8 @@ export function resolvePackageManagerUserAgent(packageManager: string): string {
 
 export function resolveDesktopProductName(version: string): string {
   return resolveDesktopUpdateChannel(version) === "nightly"
-    ? "Local Coding Desk (Nightly)"
-    : (desktopPackageJson.productName ?? "Local Coding Desk");
+    ? "Hearth (Nightly)"
+    : (desktopPackageJson.productName ?? "Hearth");
 }
 
 export const createBuildConfig = Effect.fn("createBuildConfig")(function* (
@@ -2823,7 +2823,7 @@ export const createBuildConfig = Effect.fn("createBuildConfig")(function* (
     afterPack: (yield* Path.Path).join(yield* RepoRoot, "scripts/prepare-server-compile-cache.cjs"),
     appId: DESKTOP_APP_ID,
     productName: resolveDesktopProductName(version),
-    artifactName: "Local-Coding-Desk-${version}-${arch}.${ext}",
+    artifactName: "Hearth-${version}-${arch}.${ext}",
     electronLanguages: [...DESKTOP_ELECTRON_LANGUAGES],
     files: [
       ...DESKTOP_FILE_EXCLUSIONS,
@@ -2877,23 +2877,23 @@ export const createBuildConfig = Effect.fn("createBuildConfig")(function* (
         // macOS 26 offers Messages/Mail codes in every text field unless opted out.
         NSAutoFillRequiresTextContentTypeForOneTimeCodeOnMac: true,
         NSLocalNetworkUsageDescription:
-          "Local Coding Desk connects to devices on your local network for remote environments and commands run by terminals and coding agents.",
+          "Hearth connects to devices on your local network for remote environments and commands run by terminals and coding agents.",
         NSCalendarsUsageDescription:
-          "Commands you run in Local Coding Desk may need access to your calendars.",
+          "Commands you run in Hearth may need access to your calendars.",
         NSCalendarsFullAccessUsageDescription:
-          "Commands you run in Local Coding Desk may need to read and write your calendar events.",
+          "Commands you run in Hearth may need to read and write your calendar events.",
         NSCalendarsWriteOnlyAccessUsageDescription:
-          "Commands you run in Local Coding Desk may need to add events to your calendars.",
+          "Commands you run in Hearth may need to add events to your calendars.",
         NSScreenCaptureUsageDescription:
-          "Local Coding Desk captures the active window when you use the window capture shortcut.",
+          "Hearth captures the active window when you use the window capture shortcut.",
         NSCameraUsageDescription:
-          "Local Coding Desk lets commands run by terminals and coding agents use the camera.",
+          "Hearth lets commands run by terminals and coding agents use the camera.",
         NSMicrophoneUsageDescription:
-          "Local Coding Desk lets commands run by terminals and coding agents use the microphone.",
+          "Hearth lets commands run by terminals and coding agents use the microphone.",
         NSAppleEventsUsageDescription:
-          "Local Coding Desk lets commands run by terminals and coding agents control other apps.",
+          "Hearth lets commands run by terminals and coding agents control other apps.",
         NSSpeechRecognitionUsageDescription:
-          "Local Coding Desk transcribes your dictation on this Mac when you choose Apple Speech.",
+          "Hearth transcribes your dictation on this Mac when you choose Apple Speech.",
         // macOS lists an app under Default web browser only when it opens web
         // pages as documents as well as http and https links (see protocols).
         CFBundleDocumentTypes: [
@@ -2907,7 +2907,7 @@ export const createBuildConfig = Effect.fn("createBuildConfig")(function* (
       },
       protocols: [
         {
-          name: "Local Coding Desk",
+          name: "Hearth",
           schemes: ["t3code", "t3code-dev"],
         },
         {
@@ -2960,7 +2960,7 @@ export const createBuildConfig = Effect.fn("createBuildConfig")(function* (
       maintainer: "T3 Tools <hello@t3.codes>",
       protocols: [
         {
-          name: "Local Coding Desk",
+          name: "Hearth",
           schemes: ["t3code", "t3code-dev"],
         },
       ],
@@ -3966,11 +3966,10 @@ const buildDesktopArtifactUnlocked = Effect.fn("buildDesktopArtifactUnlocked")(f
     ...(macWebAuthn ? { t3codeWebAuthn: macWebAuthn } : {}),
     private: true,
     packageManager: rootPackageJson.packageManager,
-    description:
-      "Local Coding Desk is an unofficial desktop fork of T3 Code for local coding-agent sessions.",
+    description: "Hearth is an unofficial desktop fork of T3 Code for local coding-agent sessions.",
     license: "MIT",
-    homepage: "https://github.com/weivwang/local-coding-desk",
-    author: "Local Coding Desk contributors",
+    homepage: "https://github.com/weivwang/hearth",
+    author: "Hearth contributors",
     main: "apps/desktop/dist-electron/boot.cjs",
     build: yield* createBuildConfig(
       options.platform,
@@ -4297,7 +4296,7 @@ const buildDesktopArtifactCli = Command.make("build-desktop-artifact", {
     Flag.optional,
   ),
 }).pipe(
-  Command.withDescription("Build a desktop artifact for Local Coding Desk."),
+  Command.withDescription("Build a desktop artifact for Hearth."),
   Command.withHandler((input) => Effect.flatMap(resolveBuildOptions(input), buildDesktopArtifact)),
 );
 

@@ -55,10 +55,7 @@ const make = Effect.gen(function* () {
     );
     if (runtime === undefined) return yield* stopped(input.server);
     if (runtime.mcpSignIn === undefined) {
-      return yield* fail(
-        input.server,
-        "This agent can't sign MCP servers in from Local Coding Desk.",
-      );
+      return yield* fail(input.server, "This agent can't sign MCP servers in from Hearth.");
     }
     return { providerThread, mcpSignIn: runtime.mcpSignIn };
   });

@@ -79,7 +79,7 @@ const RELEASE_ASSETS = {
 
 const VARIANT_CONFIG = {
   development: {
-    appName: "Local Coding Desk Dev",
+    appName: "Hearth Dev",
     scheme: "t3code-dev",
     iosBundleIdentifier: "com.t3tools.t3code.dev",
     androidPackage: "com.t3tools.t3code.dev",
@@ -87,7 +87,7 @@ const VARIANT_CONFIG = {
     assets: DEVELOPMENT_ASSETS,
   },
   preview: {
-    appName: "Local Coding Desk Preview",
+    appName: "Hearth Preview",
     scheme: "t3code-preview",
     iosBundleIdentifier: "com.t3tools.t3code.preview",
     androidPackage: "com.t3tools.t3code.preview",
@@ -95,7 +95,7 @@ const VARIANT_CONFIG = {
     assets: PREVIEW_ASSETS,
   },
   production: {
-    appName: "Local Coding Desk",
+    appName: "Hearth",
     scheme: "t3code",
     iosBundleIdentifier: "com.t3tools.t3code",
     androidPackage: "com.t3tools.t3code",
@@ -143,7 +143,7 @@ const widgetsPlugin: NonNullable<ExpoConfig["plugins"]>[number] = [
       {
         name: "SubscriptionUsage",
         displayName: "Subscription usage",
-        description: "Subscription quotas from your connected Local Coding Desk environments.",
+        description: "Subscription quotas from your connected Hearth environments.",
         ios: {
           configuration: {
             title: "Subscription usage",
@@ -193,7 +193,7 @@ const widgetsPlugin: NonNullable<ExpoConfig["plugins"]>[number] = [
       {
         name: "AgentActivity",
         displayName: "Agent Activity",
-        description: "Shows the current state of active Local Coding Desk agents.",
+        description: "Shows the current state of active Hearth agents.",
         android: null,
         ios: {
           supportedFamilies: ["systemSmall", "systemMedium", "accessoryRectangular"],
@@ -276,11 +276,10 @@ const config: ExpoConfig = {
         NSAllowsArbitraryLoads: true,
       },
       NSLocalNetworkUsageDescription:
-        "Allow Local Coding Desk to connect to Local Coding Desk servers on your local network or tailnet.",
+        "Allow Hearth to connect to Hearth servers on your local network or tailnet.",
       // Built with the iOS 27 SDK, only view controllers can hide or style the status bar.
       UIViewControllerBasedStatusBarAppearance: true,
-      NSPhotoLibraryAddUsageDescription:
-        "Allow Local Coding Desk to save images to your photo library.",
+      NSPhotoLibraryAddUsageDescription: "Allow Hearth to save images to your photo library.",
       // System picture in picture needs background audio to start and survive outside the app.
       UIBackgroundModes: ["audio"],
       ITSAppUsesNonExemptEncryption: false,
@@ -391,7 +390,7 @@ const config: ExpoConfig = {
     [
       "expo-audio",
       {
-        microphonePermission: "Allow Local Coding Desk to use your microphone for voice input.",
+        microphonePermission: "Allow Hearth to use your microphone for voice input.",
         recordAudioAndroid: true,
         enableBackgroundPlayback: false,
         enableBackgroundRecording: false,
@@ -400,8 +399,7 @@ const config: ExpoConfig = {
     [
       "expo-camera",
       {
-        cameraPermission:
-          "Allow Local Coding Desk to access your camera so you can scan pairing QR codes.",
+        cameraPermission: "Allow Hearth to access your camera so you can scan pairing QR codes.",
         microphonePermission: false,
         barcodeScannerEnabled: true,
         recordAudioAndroid: false,
@@ -412,7 +410,7 @@ const config: ExpoConfig = {
       {
         photosPermission: false,
         // `false` makes this plugin add RECORD_AUDIO to blockedPermissions, breaking Android dictation.
-        microphonePermission: "Allow Local Coding Desk to use your microphone for voice input.",
+        microphonePermission: "Allow Hearth to use your microphone for voice input.",
       },
     ],
     [

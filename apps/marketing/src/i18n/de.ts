@@ -2,13 +2,13 @@ import type { Messages } from "./en";
 
 export const de: Messages = {
   layout: {
-    defaultTitle: "Local Coding Desk",
-    defaultDescription: "Local Coding Desk. Die Open-Source-Steuerzentrale für Coding-Agenten.",
+    defaultTitle: "Hearth",
+    defaultDescription: "Hearth. Die Open-Source-Steuerzentrale für Coding-Agenten.",
     socialImageAlt:
-      "Local Coding Desk: die Open-Source-Steuerzentrale für Coding-Agenten, mit Claude Code, Codex, Cursor, OpenCode, Grok und Antigravity.",
-    homeLabel: "Startseite von Local Coding Desk",
+      "Hearth: die Open-Source-Steuerzentrale für Coding-Agenten, mit Claude Code, Codex, Cursor, OpenCode, Grok und Antigravity.",
+    homeLabel: "Startseite von Hearth",
     download: "Download",
-    starsLabel: "Local Coding Desk auf GitHub einen Stern geben, {stars} Sterne",
+    starsLabel: "Hearth auf GitHub einen Stern geben, {stars} Sterne",
     githubStars: "{stars} GitHub-Sterne",
     language: "Sprache",
     mitLicensed: "MIT-lizenziert",
@@ -19,8 +19,8 @@ export const de: Messages = {
     security: "Sicherheit",
   },
   home: {
-    title: "Local Coding Desk | Die Open-Source-Steuerzentrale für Coding-Agenten",
-    description: "Local Coding Desk. Die Open-Source-Steuerzentrale für Coding-Agenten.",
+    title: "Hearth | Die Open-Source-Steuerzentrale für Coding-Agenten",
+    description: "Hearth. Die Open-Source-Steuerzentrale für Coding-Agenten.",
     heroTitle: ["Die Open-Source-", "Steuerzentrale", "für Coding-Agenten."],
     heroSub:
       "Steuere Claude Code, Codex, Antigravity, OpenCode, Cursor und Grok von einer Oberfläche aus. Nutze dein eigenes Abo. Forke das ganze Ding.",
@@ -31,15 +31,14 @@ export const de: Messages = {
     downloadForAndroid: "Für Android herunterladen",
     sourceLink: "Klau unseren Code (legal)",
     alsoOnPhone: "Auch auf deinem Handy:",
-    screenshotAlt:
-      "Local Coding Desk führt Subagenten von Claude, Codex, Muse und Gemini in einem Thread aus",
+    screenshotAlt: "Hearth führt Subagenten von Claude, Codex, Muse und Gemini in einem Thread aus",
     endorsementsTitle: "Toleriert von über {users} Devs",
     endorsementsSub: "Ein paar haben sogar Nettes getwittert.",
     endorsementsLabel: "Stimmen von Entwicklern",
     readPost: "Beitrag von {handle} auf X lesen",
     harnessTitle: "Bring dein eigenes Abo mit",
     harnessBody:
-      "Local Coding Desk verkauft keine Tokens weiter. Verbinde Claude Code, Codex, Antigravity, OpenCode, Cursor oder Grok mit den Zugangsdaten, die du schon hast. Wir orchestrieren sie, du behältst dein Abo.",
+      "Hearth verkauft keine Tokens weiter. Verbinde Claude Code, Codex, Antigravity, OpenCode, Cursor oder Grok mit den Zugangsdaten, die du schon hast. Wir orchestrieren sie, du behältst dein Abo.",
     googleSignIn: "Google-Anmeldung",
     harnessPoints: [
       "Keine weiterverkauften Keys. Keine Kontingentgrenzen.",
@@ -47,7 +46,7 @@ export const de: Messages = {
       "Jede Woche neue Agenten.",
     ],
     gitVisualLabel:
-      "Illustration des Git-Workflows in Local Coding Desk: Diff prüfen, Änderungen committen und pushen, Pull Request öffnen.",
+      "Illustration des Git-Workflows in Hearth: Diff prüfen, Änderungen committen und pushen, Pull Request öffnen.",
     prReady: "Bereit",
     prCommits: "3 Commits",
     viewDiff: "Diff ansehen",
@@ -76,15 +75,15 @@ export const de: Messages = {
     browseSource: "Quellcode ansehen",
     ctaTitle: "Deine Agenten verdienen Besseres als ein Terminal.",
     ctaSub:
-      "Local Coding Desk ist kostenlos, Open Source und schnell. Installier es, verbinde die Agenten, für die du schon zahlst, und lass sie direkt loslegen.",
+      "Hearth ist kostenlos, Open Source und schnell. Installier es, verbinde die Agenten, für die du schon zahlst, und lass sie direkt loslegen.",
     otherPlatforms: "Andere Plattformen",
   },
   download: {
-    title: "Local Coding Desk für macOS, Windows und Linux herunterladen | Local Coding Desk",
+    title: "Hearth für macOS, Windows und Linux herunterladen | Hearth",
     description:
-      "Lade die offizielle Desktop-App von Local Coding Desk für macOS, Windows oder Linux herunter, oder hol dir die Apps für iOS und Android. t3.codes ist die einzige offizielle Download-Seite.",
+      "Lade die offizielle Desktop-App von Hearth für macOS, Windows oder Linux herunter, oder hol dir die Apps für iOS und Android. t3.codes ist die einzige offizielle Download-Seite.",
     breadcrumb: "Download",
-    heading: "Local Coding Desk herunterladen",
+    heading: "Hearth herunterladen",
     channelLabel: "Release-Kanal",
     stable: "Stable",
     nightly: "Nightly",

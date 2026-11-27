@@ -202,8 +202,8 @@ function CrashReportsSetting() {
       <Text className="px-2 text-sm leading-normal text-foreground-muted">
         <T>
           When the app crashes or hits an error, it sends the error message, the stack trace, the
-          app version, and the device model and OS version to the Local Coding Desk team. Each
-          launch also sends startup timings. Reports carry a random ID for this install.
+          app version, and the device model and OS version to the Hearth team. Each launch also
+          sends startup timings. Reports carry a random ID for this install.
         </T>
       </Text>
     </View>
@@ -219,7 +219,7 @@ function ConnectionTracesSetting() {
       </SettingsSection>
       <Text className="px-2 text-sm leading-normal text-foreground-muted">
         {gt(
-          "When the app connects to a computer through {product}, it sends the Local Coding Desk team how long each step took, any error type, an ID for this app session, and the app version. Traces never include your threads, prompts, or code.",
+          "When the app connects to a computer through {product}, it sends the Hearth team how long each step took, any error type, an ID for this app session, and the app version. Traces never include your threads, prompts, or code.",
           { product: "T3 Connect" },
         )}
       </Text>

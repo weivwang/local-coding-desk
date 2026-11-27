@@ -214,7 +214,7 @@ export function WorkflowsPage() {
               >
                 <SelectTrigger
                   size="sm"
-                  aria-label={gt("Environment", { $context: "a Local Coding Desk server to pick" })}
+                  aria-label={gt("Environment", { $context: "a Hearth server to pick" })}
                 >
                   <SelectValue>
                     {away ??

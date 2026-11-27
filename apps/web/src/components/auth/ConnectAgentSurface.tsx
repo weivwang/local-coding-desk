@@ -260,7 +260,7 @@ export function McpConsent({
     pending === null &&
     access !== null &&
     resolveApprovalDecision({ code: pairingCode, access, details }) !== null;
-  // A code from "Use Local Coding Desk in another app" names its level, so the page does not ask again.
+  // A code from "Use Hearth in another app" names its level, so the page does not ask again.
   const codeAccess = parseMcpApprovalCode(pairingCode)?.access;
   const approveLevel = codeAccess ?? access;
 
@@ -351,8 +351,8 @@ export function McpConsent({
             />
             <p className="text-xs text-muted-foreground">
               <T>
-                Get one from Use Local Coding Desk in another app (MCP), Settings → Sharing &
-                access, or <code>t3 auth pairing create</code> on this machine.
+                Get one from Use Hearth in another app (MCP), Settings → Sharing & access, or{" "}
+                <code>t3 auth pairing create</code> on this machine.
               </T>
             </p>
           </div>

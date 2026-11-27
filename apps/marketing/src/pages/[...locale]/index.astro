@@ -9,10 +9,10 @@ export const getStaticPaths = localeStaticPaths;
 const { locale } = Astro.props;
 ---
 
-<Layout title="Local Coding Desk" description="A local desktop app for coding agents." {locale} localizedPath="/" noindex>
+<Layout title="Hearth" description="A local desktop app for coding agents." {locale} localizedPath="/" noindex>
   <section class="desk-intro">
     <Image src={appIcon} width={92} height={92} alt="" />
-    <h1>Local Coding Desk</h1>
+    <h1>Hearth</h1>
     <p>Run coding agents on your Mac with authenticated local access.</p>
     <a href={`${GITHUB_REPOSITORY_URL}/releases/latest`}>Download for Apple Silicon</a>
     <p class="desk-credit">An unofficial fork of <a href="https://github.com/pingdotgg/t3code">T3 Code</a>.</p>

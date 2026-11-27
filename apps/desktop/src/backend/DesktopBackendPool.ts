@@ -217,7 +217,7 @@ export const layer = Layer.effect(
           );
           yield* electronDialog.showErrorBox(
             m(msg("WSL backend is still unavailable")),
-            `${reason}\n\n${m(msg("Local Coding Desk will use the Windows backend for this launch and retry WSL the next time the app starts."))}`,
+            `${reason}\n\n${m(msg("Hearth will use the Windows backend for this launch and retry WSL the next time the app starts."))}`,
           );
           yield* appSettings.applyWslWindowsFallbackInMemory;
           return true;
@@ -228,7 +228,7 @@ export const layer = Layer.effect(
         });
         yield* electronDialog.showErrorBox(
           m(msg("WSL backend couldn't start")),
-          `${reason}\n\n${m(msg("Falling back to the Windows backend so Local Coding Desk can open. Re-enable the WSL backend from Settings > Sharing & access once the WSL distro is fixed."))}`,
+          `${reason}\n\n${m(msg("Falling back to the Windows backend so Hearth can open. Re-enable the WSL backend from Settings > Sharing & access once the WSL distro is fixed."))}`,
         );
         // Clear wslOnly too so enabling WSL cannot restore a failed mode.
         // Keep the in-memory fallback if persistence fails.

@@ -209,8 +209,8 @@ const formatNextSteps = (routes: Routes, serviceInstalled: boolean, hints: Hints
       ? []
       : [
           serviceInstalled
-            ? "Remote access is off. Local Coding Desk still runs here in the background."
-            : `Remote access is off. Run \`${hints.run}\` to use Local Coding Desk here.`,
+            ? "Remote access is off. Hearth still runs here in the background."
+            : `Remote access is off. Run \`${hints.run}\` to use Hearth here.`,
         ]),
   ].join("\n");
 
@@ -314,7 +314,7 @@ const setUp = Effect.fn("cli.up")(function* (flags: {
     const confirmed = yield* Prompt.run(
       Prompt.Confirm({
         message: update
-          ? "Update and restart Local Coding Desk? Running agent turns will stop."
+          ? "Update and restart Hearth? Running agent turns will stop."
           : "Apply changes and restart? Running agent turns will stop.",
         initial: true,
       }),
@@ -389,7 +389,7 @@ const setUp = Effect.fn("cli.up")(function* (flags: {
       yield* Console.log(`Keeping installed service version t3@${installedVersion}.`);
     }
     if (update && !interactive) {
-      yield* Console.log("Updating Local Coding Desk. Running agent turns will stop.");
+      yield* Console.log("Updating Hearth. Running agent turns will stop.");
     }
     const result = newer
       ? ({ changed: false } as const)
@@ -427,7 +427,7 @@ const setUp = Effect.fn("cli.up")(function* (flags: {
         yield* Console.log(`Run \`${command}\` to turn T3 Connect off.`);
       } else {
         if (!interactive && !stopped) {
-          yield* Console.log("Restarting Local Coding Desk. Running agent turns will stop.");
+          yield* Console.log("Restarting Hearth. Running agent turns will stop.");
         }
         const outcome = yield* service.restart.pipe(Effect.tapError(() => rollBack));
         if (outcome === "queued") {
@@ -477,11 +477,9 @@ export const upCommand = Command.make("up", {
   ),
   headless: headlessFlag,
 }).pipe(
-  Command.withShortDescription(
-    "Set up remote access and the Local Coding Desk background service.",
-  ),
+  Command.withShortDescription("Set up remote access and the Hearth background service."),
   Command.withDescription(
-    "Set up remote access and the Local Coding Desk background service. Access flags skip the question, and routes not named keep their settings. Without a terminal, a needed restart runs without asking and stops running agent turns.",
+    "Set up remote access and the Hearth background service. Access flags skip the question, and routes not named keep their settings. Without a terminal, a needed restart runs without asking and stops running agent turns.",
   ),
   Command.withExamples([
     { command: "t3 up", description: "Choose remote access." },

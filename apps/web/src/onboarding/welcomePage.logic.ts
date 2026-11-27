@@ -87,7 +87,7 @@ export function turnedOnInstance(instance: ProviderInstanceConfig): ProviderInst
   };
 }
 
-/** A CLI the server knows is too old or otherwise broken for Local Coding Desk; Settings updates it. */
+/** A CLI the server knows is too old or otherwise broken for Hearth; Settings updates it. */
 export function isBrokenVersion(provider: ServerProvider) {
   return provider.installed && provider.compatibilityAdvisory?.status === "broken";
 }

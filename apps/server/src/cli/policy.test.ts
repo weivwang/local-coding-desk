@@ -47,17 +47,14 @@ it.layer(Layer.mergeAll(NodeServices.layer, NodeCrypto.layer))((it) => {
           return yield* describeRunningServer(statePath, current);
         });
 
-      assert.include(
-        yield* describeRunningServer(statePath, installed),
-        "No Local Coding Desk server",
-      );
+      assert.include(yield* describeRunningServer(statePath, installed), "No Hearth server");
       assert.include(yield* running(installed), "loaded this policy.");
       assert.include(
         yield* running(yield* loaded("Other Corp")),
         "loaded Other Corp's policy from /etc/t3code/policy.json",
       );
-      assert.include(yield* running(null), "loaded no policy. Restart Local Coding Desk");
-      assert.include(yield* running(installed, null), "Restart Local Coding Desk to apply");
+      assert.include(yield* running(null), "loaded no policy. Restart Hearth");
+      assert.include(yield* running(installed, null), "Restart Hearth to apply");
       assert.include(yield* running(null, null), "runs without a policy, as installed");
       assert.include(yield* running(undefined), "does not report which policy it loaded");
     }),

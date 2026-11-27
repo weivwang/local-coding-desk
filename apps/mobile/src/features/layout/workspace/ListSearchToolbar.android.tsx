@@ -59,7 +59,7 @@ export function ListSearchToolbar(props: {
   }, [searching, closeSearch, navigation, isTabActive, section]);
   return (
     <AppBar
-      title="Local Coding Desk"
+      title="Hearth"
       titleContent={
         <WorkspaceConnectionTitle
           grow

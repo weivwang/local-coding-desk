@@ -10,12 +10,7 @@ export function LocalDeskMark(props: {
   readonly colorClassName?: string;
 }) {
   return (
-    <Svg
-      accessibilityLabel="Local Coding Desk"
-      height={props.height}
-      width={props.height}
-      viewBox="0 0 24 24"
-    >
+    <Svg accessibilityLabel="Hearth" height={props.height} width={props.height} viewBox="0 0 24 24">
       <ThemedPath
         d="M7 8l5 4-5 4M14 16h4"
         color={props.color}

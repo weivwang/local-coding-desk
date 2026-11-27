@@ -63,7 +63,7 @@ export interface VerifiedSession {
   readonly scopes: ReadonlyArray<AuthEnvironmentScope>;
   readonly proofKeyThumbprint?: string;
   readonly runtimeModeCeiling?: RuntimeMode;
-  /** An MCP client that is another Local Coding Desk environment's peer link. */
+  /** An MCP client that is another Hearth environment's peer link. */
   readonly peerLink?: true;
 }
 

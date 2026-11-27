@@ -26,7 +26,7 @@ vi.hoisted(() => {
   electronModule.exports = {
     app: {
       getVersion: () => "1.0.0",
-      getName: () => "Local Coding Desk",
+      getName: () => "Hearth",
       isPackaged: true,
       quit: () => undefined,
       once: () => undefined,

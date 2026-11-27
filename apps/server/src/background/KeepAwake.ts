@@ -66,7 +66,7 @@ export function inhibitorCommand(
         command: "systemd-inhibit",
         args: [
           "--what=sleep",
-          "--who=Local Coding Desk",
+          "--who=Hearth",
           "--why=Agents are working",
           "--mode=block",
           // systemd-inhibit starts this only after logind grants the lock.

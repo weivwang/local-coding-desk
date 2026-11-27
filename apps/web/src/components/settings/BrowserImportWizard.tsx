@@ -282,14 +282,14 @@ function FullDiskAccessStep({
       <DialogHeader>
         <DialogTitle>
           <T>
-            Let Local Coding Desk read <Var>{source.name}</Var>&rsquo;s cookies
+            Let Hearth read <Var>{source.name}</Var>&rsquo;s cookies
           </T>
         </DialogTitle>
         <DialogDescription>
           <T>
-            To import cookies from <Var>{source.name}</Var>, Local Coding Desk needs Full Disk
-            Access. Turn it on in System Settings, then come back to finish the import. You can
-            revoke it again once the import is done.
+            To import cookies from <Var>{source.name}</Var>, Hearth needs Full Disk Access. Turn it
+            on in System Settings, then come back to finish the import. You can revoke it again once
+            the import is done.
           </T>
         </DialogDescription>
       </DialogHeader>
@@ -323,10 +323,10 @@ function FullDiskAccessStep({
           <p className="mt-3 text-xs text-muted-foreground">
             {stillRequired
               ? gt(
-                  "Access is still required. Quit and reopen Local Coding Desk if you just allowed it, then retry the import.",
+                  "Access is still required. Quit and reopen Hearth if you just allowed it, then retry the import.",
                 )
               : gt(
-                  "If access doesn't update after you allow it, quit and reopen Local Coding Desk, then retry the import.",
+                  "If access doesn't update after you allow it, quit and reopen Hearth, then retry the import.",
                 )}
           </p>
         ) : null}

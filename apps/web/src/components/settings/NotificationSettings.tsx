@@ -28,7 +28,7 @@ export function NotificationSettings() {
       description={
         permissionMessage ??
         gt(
-          "System alerts when a thread finishes, fails, or needs input or approval. Applies to this device while Local Coding Desk is open.",
+          "System alerts when a thread finishes, fails, or needs input or approval. Applies to this device while Hearth is open.",
         )
       }
       control={

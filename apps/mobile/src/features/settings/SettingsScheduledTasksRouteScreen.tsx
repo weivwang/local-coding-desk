@@ -838,7 +838,7 @@ function TaskForm({
         gt("Once is not available here"),
         gt(
           "This environment runs an older {product}. Update it to schedule a one-time task, or pick another schedule.",
-          { product: "Local Coding Desk" },
+          { product: "Hearth" },
         ),
       );
       return;

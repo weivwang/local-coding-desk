@@ -96,7 +96,7 @@ describe("remote environment authorization", () => {
         credential: "one-time-credential",
         dpopProof: "token-proof",
         clientMetadata: {
-          label: "Local Coding Desk Mobile",
+          label: "Hearth Mobile",
           deviceType: "mobile",
           os: "iOS",
         },

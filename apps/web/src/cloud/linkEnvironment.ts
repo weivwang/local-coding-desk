@@ -69,13 +69,10 @@ const ensureRelayClientAvailable = Effect.fn("linkEnvironment.ensureRelayClientA
     if (status.status === "unsupported") {
       return yield* new CloudEnvironmentLinkError({
         message: m(
-          msg(
-            "Local Coding Desk cannot install the relay client automatically on {platform}-{arch}.",
-            {
-              platform: status.platform,
-              arch: status.arch,
-            },
-          ),
+          msg("Hearth cannot install the relay client automatically on {platform}-{arch}.", {
+            platform: status.platform,
+            arch: status.arch,
+          }),
         ),
       });
     }
@@ -113,13 +110,10 @@ const ensureRelayClientAvailable = Effect.fn("linkEnvironment.ensureRelayClientA
         message:
           installedStatus.status === "unsupported"
             ? m(
-                msg(
-                  "Local Coding Desk cannot install the relay client automatically on {platform}-{arch}.",
-                  {
-                    platform: installedStatus.platform,
-                    arch: installedStatus.arch,
-                  },
-                ),
+                msg("Hearth cannot install the relay client automatically on {platform}-{arch}.", {
+                  platform: installedStatus.platform,
+                  arch: installedStatus.arch,
+                }),
               )
             : m(msg("The relay client is still unavailable after installation.")),
       });

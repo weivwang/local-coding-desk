@@ -71,16 +71,12 @@ export function planProjectRemoval<
       ? [
           resolve(
             msg(
-              "Those threads and any archived threads are deleted from Local Coding Desk. Provider sessions are kept.",
+              "Those threads and any archived threads are deleted from Hearth. Provider sessions are kept.",
             ),
           ),
         ]
       : [
-          resolve(
-            msg(
-              "Any archived threads are deleted from Local Coding Desk. Provider sessions are kept.",
-            ),
-          ),
+          resolve(msg("Any archived threads are deleted from Hearth. Provider sessions are kept.")),
         ]),
     isWholeGroup && !hasOtherMembers
       ? resolve(msg("This removes only the project entries, not the files on disk."))

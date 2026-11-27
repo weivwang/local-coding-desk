@@ -262,7 +262,7 @@ describe("CodexAdapterV2 runtime policy", () => {
       });
       assert.deepEqual((yield* build("approval-required")).sandboxPolicy, { type: "readOnly" });
       assert.deepEqual((yield* build("full-access")).sandboxPolicy, { type: "dangerFullAccess" });
-      // The folder list reaches the model without Local Coding Desk's MCP tools.
+      // The folder list reaches the model without Hearth's MCP tools.
       assert.deepEqual(Object.keys(autoAcceptEdits.additionalContext ?? {}), ["t3_code_workspace"]);
       assert.include(
         autoAcceptEdits.additionalContext?.["t3_code_workspace"]?.value,
@@ -713,8 +713,8 @@ function codexReplayPreamble(input: {
         method: "initialize",
         params: {
           clientInfo: {
-            name: "Local Coding Desk",
-            title: "Local Coding Desk",
+            name: "Hearth",
+            title: "Hearth",
             version: packageJson.version,
           },
           capabilities: {
@@ -733,7 +733,7 @@ function codexReplayPreamble(input: {
       frame: {
         id: 1,
         result: {
-          userAgent: "Local Coding Desk/0.156.1",
+          userAgent: "Hearth/0.156.1",
           codexHome: "/tmp/codex-home",
           platformFamily: "unix",
           platformOs: "macos",
@@ -1365,8 +1365,7 @@ describe("CodexAdapterV2 session initialize", () => {
               frame: {
                 id: 1,
                 result: {
-                  userAgent:
-                    "Local Coding Desk/0.144.3 (Mac OS 15.5.0; x86_64) unknown (Local Coding Desk; 0.1.5)",
+                  userAgent: "Hearth/0.144.3 (Mac OS 15.5.0; x86_64) unknown (Hearth; 0.1.5)",
                   codexHome: "/tmp/codex-home",
                   platformFamily: "unix",
                   platformOs: "macos",
@@ -1390,7 +1389,7 @@ describe("CodexAdapterV2 session initialize", () => {
       assert.instanceOf(failure.cause, ProviderSetupError);
       assert.equal(
         failure.cause.message,
-        "Codex 0.144.3 does not work with this Local Coding Desk release. Update Codex to >=0.159.0, then retry.",
+        "Codex 0.144.3 does not work with this Hearth release. Update Codex to >=0.159.0, then retry.",
       );
     }).pipe(
       Effect.scoped,
@@ -4685,9 +4684,7 @@ describe("CodexAdapterV2 post-settle continuation", () => {
                   item: {
                     type: itemType,
                     id,
-                    ...(itemType === "webSearch"
-                      ? { query: "Local Coding Desk", action: null }
-                      : {}),
+                    ...(itemType === "webSearch" ? { query: "Hearth", action: null } : {}),
                   },
                   ...timestamps,
                 },
@@ -4774,7 +4771,7 @@ describe("CodexAdapterV2 post-settle continuation", () => {
         assert.equal(unfinished[0]?.id, unfinished[1]?.id);
         assert.deepEqual(unfinished[1]?.startedAt, DateTime.makeUnsafe(1782622443000));
         if (unfinished[1]?.type === "web_search") {
-          assert.deepEqual(unfinished[1].patterns, ["Local Coding Desk"]);
+          assert.deepEqual(unfinished[1].patterns, ["Hearth"]);
           assert.deepEqual(
             harness.events.flatMap((event) =>
               event.type === "node.updated" &&

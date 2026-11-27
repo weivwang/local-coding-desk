@@ -21,7 +21,7 @@ const REMOTE_EDITOR_PROTOCOLS = new Set(
   }),
 );
 
-// "Use Local Coding Desk in another app" opens these apps (apps/web/src/components/mcp/mcpApps.ts). Match
+// "Use Hearth in another app" opens these apps (apps/web/src/components/mcp/mcpApps.ts). Match
 // each exact link shape the wizard sends, never a whole scheme.
 const isAppLaunchUrl = (url: URL) =>
   url.protocol === "grokbot:" &&
