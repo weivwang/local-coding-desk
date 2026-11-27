@@ -832,8 +832,11 @@ function useSidebarLookups() {
   const serverConfigs = useServerConfigs();
   const providerEntriesByEnvironment = useAtomValue(sidebarProviderEntriesAtom);
   const projectGroups = useSidebarProjectGroups();
-  const environmentLabelById = new Map(
-    environments.map((environment) => [environment.environmentId, environment.label] as const),
+  // A machine name under every row only helps when threads come from more than one machine.
+  const threadRowEnvironmentLabelById = new Map(
+    environments.length > 1
+      ? environments.map((environment) => [environment.environmentId, environment.label] as const)
+      : [],
   );
   const projectByKey = new Map(
     projects.map((project) => [`${project.environmentId}:${project.id}`, project] as const),
@@ -860,7 +863,7 @@ function useSidebarLookups() {
     projects,
     serverConfigs,
     projectGroups,
-    environmentLabelById,
+    threadRowEnvironmentLabelById,
     providerEntriesByEnvironment,
     projectByKey,
     projectDisplayNameByKey,
@@ -933,7 +936,7 @@ export default function Sidebar({ routeReveal }: { routeReveal: SidebarRouteReve
     projects,
     serverConfigs,
     projectGroups,
-    environmentLabelById,
+    threadRowEnvironmentLabelById,
     providerEntriesByEnvironment,
     projectByKey,
     projectDisplayNameByKey,
@@ -3380,7 +3383,9 @@ export default function Sidebar({ routeReveal }: { routeReveal: SidebarRouteReve
                               `${thread.environmentId}:${thread.projectId}`,
                             ) ?? null
                           }
-                          environmentLabel={environmentLabelById.get(thread.environmentId) ?? null}
+                          environmentLabel={
+                            threadRowEnvironmentLabelById.get(thread.environmentId) ?? null
+                          }
                           environmentMachine={
                             environmentMachineById.get(thread.environmentId) ?? "server"
                           }
@@ -3590,7 +3595,7 @@ export default function Sidebar({ routeReveal }: { routeReveal: SidebarRouteReve
                               showJumpHints ? (jumpLabelByKey.get(threadKey) ?? null) : null
                             }
                             environmentLabel={
-                              environmentLabelById.get(thread.environmentId) ?? null
+                              threadRowEnvironmentLabelById.get(thread.environmentId) ?? null
                             }
                             environmentMachine={
                               environmentMachineById.get(thread.environmentId) ?? "server"

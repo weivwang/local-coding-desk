@@ -2126,9 +2126,10 @@ code {
 }
 
 :is(.chat-markdown, .composer-tiptap) blockquote {
-  border-inline-start: 2px solid color-mix(in srgb, currentcolor 35%, transparent);
-  padding-inline-start: 0.8rem;
-  color: inherit;
+  border-inline-start: 3px solid color-mix(in srgb, currentcolor 18%, transparent);
+  border-radius: 1px;
+  padding-inline-start: 0.85rem;
+  color: var(--contrast-muted-foreground);
 }
 
 .composer-tiptap blockquote {
@@ -2192,17 +2193,17 @@ code {
 
 .chat-markdown :not(pre) > code {
   border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border-radius: 0.3125rem;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  background: color-mix(in srgb, var(--contrast-foreground) 10%, transparent);
-  padding: 0.1em 0.35em;
+  background: color-mix(in srgb, var(--contrast-foreground) 6.5%, transparent);
+  padding: 0.12em 0.4em;
   color: var(--contrast-foreground);
-  font-size: 0.85em;
+  font-size: 0.84em;
 }
 
 .chat-markdown.user-message-markdown :not(pre) > code {
-  background: color-mix(in srgb, var(--contrast-message-foreground) 10%, transparent);
+  background: color-mix(in srgb, var(--contrast-message-foreground) 8%, transparent);
   color: var(--contrast-message-foreground);
 }
 
@@ -2332,13 +2333,20 @@ code {
 }
 
 .chat-markdown thead th {
-  border-bottom: 1px solid color-mix(in srgb, var(--contrast-border) 60%, transparent);
-  padding-block: 0.55rem;
+  border-bottom: 1px solid var(--contrast-border);
+  padding-block: 0.4rem;
+  color: var(--contrast-muted-foreground);
+  font-size: 0.8125rem;
   font-weight: 600;
 }
 
 .chat-markdown tbody td {
-  border-bottom: 1px solid color-mix(in srgb, var(--contrast-border) 60%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--contrast-border) 55%, transparent);
+  padding-block: 0.55rem;
+}
+
+.chat-markdown tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* Caps a long path, URL, or chip at 24rem; text past the cap wraps. */
