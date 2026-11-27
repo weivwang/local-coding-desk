@@ -1,6 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vite-plus/test";
 
-import { readUsagePagePreferences, saveUsagePagePreferences } from "./usagePagePreferences";
+import {
+  LIFETIME_WINDOW_DAYS,
+  readUsagePagePreferences,
+  saveUsagePagePreferences,
+} from "./usagePagePreferences";
 
 const key = "t3code:usage-page-preferences:v1";
 let values: Map<string, string>;
@@ -30,6 +34,11 @@ describe("Usage page preferences", () => {
 
     values.set(key, '{"metric":"tokens","windowDays":30}');
     expect(readUsagePagePreferences()).toEqual({ metric: "tokens", windowDays: 30 });
+  });
+
+  it("remembers the lifetime period", () => {
+    saveUsagePagePreferences({ metric: "tokens", windowDays: LIFETIME_WINDOW_DAYS });
+    expect(readUsagePagePreferences().windowDays).toBe(LIFETIME_WINDOW_DAYS);
   });
 
   // regression: #10189 an invalid saved usage selection was never replaced

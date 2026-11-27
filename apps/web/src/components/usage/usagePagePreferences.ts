@@ -4,9 +4,11 @@ import * as Schema from "effect/Schema";
 import { getLocalStorageItem, setLocalStorageItem } from "../../hooks/useLocalStorage";
 
 const STORAGE_KEY = "t3code:usage-page-preferences:v1";
+/** Lifetime reads ten years back; the page starts its days at the first one with usage. */
+export const LIFETIME_WINDOW_DAYS = 3650;
 const UsagePagePreferencesSchema = Schema.Struct({
   metric: Schema.Literals(["cost", "tokens", "limits"]),
-  windowDays: Schema.Literals([1, 7, 30, 90]),
+  windowDays: Schema.Literals([1, 7, 30, 90, LIFETIME_WINDOW_DAYS]),
   hiddenProviders: Schema.optional(Schema.Array(UsageProviderKind)),
 });
 export type UsagePagePreferences = typeof UsagePagePreferencesSchema.Type;

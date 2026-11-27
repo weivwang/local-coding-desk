@@ -102,6 +102,7 @@ import {
   rankProvidersByMetric,
 } from "./usageProviders";
 import {
+  LIFETIME_WINDOW_DAYS,
   readUsagePagePreferences,
   saveUsagePagePreferences,
   type UsagePagePreferences,
@@ -344,7 +345,14 @@ export function UsagePage() {
     if (showingLimits && connectedLimitsEnvironments) autoRefreshLimits();
   }, [showingLimits, connectedLimitsEnvironments]);
 
-  const days = enumerateDays(shownWindow.sinceDay, shownWindow.untilDay);
+  const windowDayList = enumerateDays(shownWindow.sinceDay, shownWindow.untilDay);
+  // Lifetime reads a decade back; its chart starts at the first day with usage, not years of zeros.
+  const firstUsageDay = merged.daily[0]?.day;
+  const shownSinceDay =
+    windowDayList.length >= LIFETIME_WINDOW_DAYS && firstUsageDay !== undefined
+      ? firstUsageDay
+      : shownWindow.sinceDay;
+  const days = windowDayList.filter((day) => day >= shownSinceDay);
   const hours =
     shownWindow.sinceTime === undefined || shownWindow.untilTime === undefined
       ? []
@@ -364,7 +372,7 @@ export function UsagePage() {
           end: formatDateTimeShort(shownWindow.untilTime, shownWindow.timeZone, hour12, locale),
         })
       : gt("{start} to {end}", {
-          start: formatDayShort(shownWindow.sinceDay, locale),
+          start: formatDayShort(shownSinceDay, locale),
           end: formatDayShort(shownWindow.untilDay, locale),
         });
   const windowOptionLabel = WINDOW_OPTIONS.find((option) => option.days === windowDays)?.label;
