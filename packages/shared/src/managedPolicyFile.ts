@@ -582,19 +582,16 @@ const readPlatformPolicy = Effect.fnUntraced(function* (
   return undefined;
 });
 
-/** The local edition keeps these restrictions even when a machine policy allows more. */
+/**
+ * The local edition keeps these restrictions even when a machine policy allows more: no hosted
+ * service (Connect, telemetry, updates, tunnels). Phones and other machines still pair directly
+ * over the LAN or a tailnet unless the machine policy leaves out remote clients.
+ */
 export function restrictToLocalDesktop(
-  source: string,
+  _source: string,
   policy?: ManagedPolicyDocument,
 ): Effect.Effect<ManagedPolicyDocument, ManagedPolicyFileError> {
-  const requested = policy?.limits?.clients;
-  const [firstClient, ...otherClients] =
-    requested?.filter((client) => client !== "remote") ?? (["desktop", "local-browser"] as const);
-  if (firstClient === undefined) {
-    return Effect.fail(
-      new ManagedPolicyFileError({ path: source, reason: "the policy allows only remote clients" }),
-    );
-  }
+  const clients = policy?.limits?.clients ?? (["desktop", "local-browser", "remote"] as const);
   return Effect.succeed<ManagedPolicyDocument>({
     schemaVersion: 1,
     organization: "Hearth",
@@ -606,7 +603,7 @@ export function restrictToLocalDesktop(
     },
     limits: {
       ...policy?.limits,
-      clients: [firstClient, ...otherClients],
+      clients: [...clients],
       connect: false,
       telemetry: false,
       webhookTasks: false,

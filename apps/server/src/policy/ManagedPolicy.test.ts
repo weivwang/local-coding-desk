@@ -40,11 +40,32 @@ it.layer(NodeServices.layer)("ManagedPolicy.load", (it) => {
       const policy = yield* ManagedPolicy.fromDocument("/test/local-edition", document);
       assert.isFalse(ManagedLimits.allowsConnect(policy));
       assert.isTrue(ManagedLimits.allowsAuthPolicy(policy, "desktop-managed-local"));
-      assert.isFalse(ManagedLimits.allowsAuthPolicy(policy, "remote-reachable"));
+      assert.isTrue(ManagedLimits.allowsAuthPolicy(policy, "remote-reachable"));
       assert.isFalse(ManagedLimits.allowsAuthPolicy(policy, "loopback-browser"));
       assert.equal(ManagedPolicy.deniedBy(policy, "telemetry"), "Example Corp");
       assert.deepEqual(document.settings?.["agentFeedback.mode"], { value: "off", locked: true });
       assert.equal(document.limits?.updates?.mode, "off");
+    }),
+  );
+
+  it.effect("lets phones pair directly unless the machine policy leaves out remote clients", () =>
+    Effect.gen(function* () {
+      const withoutPolicy = yield* ManagedPolicy.fromDocument(
+        "Hearth",
+        yield* restrictToLocalDesktop("Hearth"),
+      );
+      assert.isTrue(ManagedLimits.allowsAuthPolicy(withoutPolicy, "remote-reachable"));
+      assert.isFalse(ManagedLimits.allowsConnect(withoutPolicy));
+
+      const localOnly = yield* ManagedPolicy.fromDocument(
+        "/test/local-only",
+        yield* restrictToLocalDesktop("/test/local-only", {
+          schemaVersion: 1,
+          organization: "Example Corp",
+          limits: { clients: ["desktop"] },
+        }),
+      );
+      assert.isFalse(ManagedLimits.allowsAuthPolicy(localOnly, "remote-reachable"));
     }),
   );
 
